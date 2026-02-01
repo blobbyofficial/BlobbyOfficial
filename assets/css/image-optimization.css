@@ -1,0 +1,135 @@
+/* Image Optimization Guidelines & Implementation */
+
+/*
+  OPTIMIZATION CHECKLIST:
+  
+  1. AVIF Format (Best compression)
+     - .avif files: 30-50% smaller than WebP
+     - Use first in <picture> element
+     
+  2. WebP Format (Wide support)
+     - .webp files: 25-35% smaller than PNG/JPG
+     - Fallback for modern browsers
+     
+  3. PNG/JPG (Final fallback)
+     - Compressed but still supported everywhere
+     - Use for older browsers
+     
+  4. Lazy Loading
+     - loading="lazy" attribute on images
+     - Images below fold load only when needed
+     
+  5. Responsive Images
+     - srcset with device-pixel-ratio
+     - Different sizes for mobile/tablet/desktop
+     
+  6. Image Sizes
+     - Compress all images with tools like TinyPNG, ImageOptim
+     - Target <200KB for hero images
+     - Target <100KB for tiles/cards
+     
+  IMPLEMENTATION EXAMPLE:
+  
+  <picture>
+    <source srcset="image.avif" type="image/avif">
+    <source srcset="image.webp" type="image/webp">
+    <img src="image.jpg" alt="description" loading="lazy" width="400" height="300">
+  </picture>
+  
+*/
+
+/* === IMAGE LOADING STATES === */
+img[loading='lazy'] {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.05) 25%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  opacity: 0.8;
+}
+
+img.loaded {
+  animation: fadeInUp 0.4s ease-out;
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* === RESPONSIVE IMAGES === */
+picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* === IMAGE QUALITY ON DIFFERENT DEVICES === */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* High-DPI displays get higher quality images */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    /* Use 2x resolution images via srcset */
+  }
+}
+
+/* === DARK MODE IMAGE OPTIMIZATION === */
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: 0.95;
+  }
+}
+
+/* === IMAGE CONTAINER OPTIMIZATION === */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.image-container img:hover {
+  filter: brightness(1.05) saturate(1.1);
+}
+
+/* === ICON OPTIMIZATION === */
+img[alt='logo'],
+img[alt*='icon'],
+img[alt*='svg'] {
+  will-change: filter;
+  filter: brightness(0) invert(1);
+}
+
+/* === BACKGROUND IMAGE OPTIMIZATION === */
+.hero,
+.banner {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Use CSS containment for performance */
+  contain: layout style paint;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .banner {
+    background-attachment: scroll;
+  }
+}

@@ -1,0 +1,340 @@
+/* Performance & Optimization Tweaks */
+
+/* === CRITICAL PATH OPTIMIZATION === */
+/* Reduce initial paint time by deferring non-critical assets */
+.lazy-load {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"><rect fill="%230b1020" width="1" height="1"/></svg>');
+  background-size: cover;
+}
+
+/* === WILL-CHANGE HINTS === */
+/* Only apply to elements that will animate */
+.tile,
+.card,
+.work-item,
+button,
+a {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes */
+.tile.loaded,
+.card.loaded,
+.work-item.loaded {
+  will-change: auto;
+}
+
+/* === IMAGE OPTIMIZATION === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  font-display: swap;
+  /* AVIF with WebP fallback handled via <picture> elements */
+}
+
+/* Progressive image loading */
+img[loading='lazy'] {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+img.loaded {
+  animation: none;
+  background: none;
+}
+
+/* === FONT OPTIMIZATION === */
+body {
+  font-display: swap; /* Show fallback font immediately */
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === GPU ACCELERATION === */
+.navbar,
+.mobile-panel,
+.dropdown,
+.tile,
+button {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* === LIGHTWEIGHT TRANSITIONS === */
+button,
+a,
+input,
+textarea {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* === BUTTON PERFORMANCE === */
+button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+button:hover::before {
+  left: 0;
+}
+
+/* === SCROLL PERFORMANCE === */
+.scroll-container {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+}
+
+/* === FORM FIELD OPTIMIZATION === */
+input,
+textarea {
+  /* Prevent layout shift on focus */
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* === LINK OPTIMIZATION === */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+a:active {
+  transform: scale(0.98);
+}
+
+/* === MOBILE TOUCH TARGETS === */
+button,
+a[role='button'],
+input[type='button'],
+input[type='submit'] {
+  min-height: 44px; /* Recommended by iOS */
+  min-width: 44px;
+  padding: max(8px, (44px - 1em) / 2);
+}
+
+/* === REDUCE COLOR CALCULATIONS === */
+:root {
+  color-scheme: dark;
+}
+
+/* === EFFICIENT BOX SHADOWS === */
+.tile,
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.tile:hover,
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* === BACKDROP FILTER OPTIMIZATION === */
+.glass-effect {
+  /* Use transform for better performance than blur */
+  backdrop-filter: blur(10px) saturate(180%);
+  /* Fallback for unsupported browsers */
+  background: rgba(11, 16, 32, 0.8);
+}
+
+/* === CONTENT VISIBILITY FOR PERFORMANCE === */
+section:not(:first-of-type) {
+  content-visibility: auto;
+}
+
+/* === LAYOUT SHIFT PREVENTION === */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 90px; /* Offset for sticky navbar */
+}
+
+/* === PRINT OPTIMIZATION === */
+@media print {
+  .navbar,
+  .mobile-panel,
+  button,
+  form {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* === HIGH DPI DISPLAY OPTIMIZATION === */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Thinner borders on high-DPI screens */
+  .tile,
+  .card,
+  input,
+  textarea {
+    border-width: 0.5px;
+  }
+}
+
+/* === DARK MODE OPTIMIZATION === */
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: 0.95;
+  }
+}
+
+/* === EXTENDED RESPONSIVE BREAKPOINTS === */
+
+/* Extra small (Mobile) */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    min-height: 40px;
+    padding: 8px 12px;
+  }
+
+  .tile,
+  .card {
+    padding: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px;
+  }
+
+  button,
+  a.btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* Medium */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+/* Large */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+/* Extra Large */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+/* 4K & Ultra-wide */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* === LANDSCAPE MODE OPTIMIZATION === */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar {
+    height: 56px;
+  }
+
+  section {
+    padding: 20px 0;
+  }
+}
+
+/* === TOUCH DEVICE OPTIMIZATION === */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a {
+    padding: 12px 16px; /* Larger tap targets */
+  }
+
+  button:hover,
+  a:hover {
+    background: rgba(255, 255, 255, 0.05); /* Subtle feedback */
+  }
+
+  button:active,
+  a:active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* === POINTER EVENTS OPTIMIZATION === */
+@supports (pointer-events: auto) {
+  .non-interactive {
+    pointer-events: none;
+  }
+}
+
+/* === CONTAINER QUERIES (Modern Browsers) === */
+@supports (container-type: inline-size) {
+  section {
+    container-type: inline-size;
+  }
+
+  .tile {
+    /* Responsive based on container, not viewport */
+    padding: clamp(12px, 5vw, 20px);
+    font-size: clamp(14px, 2vw, 16px);
+  }
+}
+
+/* Fallback for browsers without container queries */
+@supports not (container-type: inline-size) {
+  .tile {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .tile {
+      padding: 12px;
+      font-size: 14px;
+    }
+  }
+}

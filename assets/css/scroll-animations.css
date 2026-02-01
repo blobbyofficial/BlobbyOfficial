@@ -1,0 +1,367 @@
+/* Advanced Scroll & Interaction Animations */
+
+/* === FADE UP & SCALE ANIMATION === */
+@keyframes fadeUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === FADE IN LEFT === */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === FADE IN RIGHT === */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === CHARACTER REVEAL === */
+@keyframes charReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === BLUR REVEAL === */
+@keyframes blurReveal {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* === STAGGERED LIST ITEMS === */
+.tile,
+.card,
+.work-item {
+  animation: fadeUpScale 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) backwards;
+}
+
+/* === BUTTON RIPPLE EFFECT === */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: rippleEffect 0.6s cubic-bezier(0.2, 0.9, 0.25, 1);
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* === HOVER LIFT EFFECT === */
+.interactive-element {
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+.interactive-element:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* === SMOOTH FOCUS STATE === */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3), 0 0 0 5px rgba(124, 58, 237, 0.15);
+  border-radius: 4px;
+}
+
+/* === FORM FIELD STATES === */
+input.valid,
+textarea.valid {
+  border-color: #22d3ee;
+  background: rgba(34, 211, 238, 0.05);
+  animation: validFieldPulse 0.4s ease-out;
+}
+
+@keyframes validFieldPulse {
+  0% {
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+input.error,
+textarea.error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+  animation: errorFieldShake 0.4s ease-out;
+}
+
+@keyframes errorFieldShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* === LOADING STATE === */
+button[disabled],
+button:disabled {
+  animation: buttonPulse 1.5s infinite;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* === SMOOTH PAGE TRANSITIONS === */
+main {
+  animation: pageEnter 0.5s cubic-bezier(0.2, 0.9, 0.25, 1);
+  transition: opacity 0.3s ease;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === PARALLAX BACKGROUND === */
+.parallax-bg {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+/* === SCROLL SPY ACTIVE STATE === */
+.dropdown a.active {
+  color: var(--color-accent);
+  font-weight: 600;
+  position: relative;
+  animation: navItemHighlight 0.3s ease-out;
+}
+
+@keyframes navItemHighlight {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* === LINK UNDERLINE ANIMATION === */
+.dropdown a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-alt), var(--color-accent));
+  transition: width 0.4s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+.dropdown a:hover::after,
+.dropdown a.active::after {
+  width: 100%;
+}
+
+/* === ELEMENT ENTERS FROM SIDES === */
+.slide-in-left {
+  animation: slideInFromLeft 0.8s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.8s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === SCALE GROW ANIMATION === */
+.scale-grow {
+  animation: scaleGrow 0.6s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+@keyframes scaleGrow {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === BOUNCE ENTRANCE === */
+.bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* === FLIP CARD ANIMATION === */
+.flip-in-x {
+  animation: flipInX 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+@keyframes flipInX {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateX(0deg);
+  }
+}
+
+/* === GRADIENT SHIFT ANIMATION === */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* === PULSE GLOW === */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+/* === SMOOTH SCROLL BEHAVIOR === */
+html {
+  scroll-behavior: smooth;
+}
+
+/* === STAGGER ANIMATION FOR LISTS === */
+@keyframes staggerChildren {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-container > * {
+  animation: staggerChildren 0.5s ease-out backwards;
+}
+
+.stagger-container > :nth-child(1) { animation-delay: 0ms; }
+.stagger-container > :nth-child(2) { animation-delay: 100ms; }
+.stagger-container > :nth-child(3) { animation-delay: 200ms; }
+.stagger-container > :nth-child(4) { animation-delay: 300ms; }
+.stagger-container > :nth-child(5) { animation-delay: 400ms; }
+.stagger-container > :nth-child(6) { animation-delay: 500ms; }
+
+/* === REDUCED MOTION SUPPORT === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
