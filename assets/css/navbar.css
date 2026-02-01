@@ -1,6 +1,12 @@
 /* ==================== Navbar Specific ==================== */
 .desktop-navbar {
   display: block;
+  animation: slideDown 500ms cubic-bezier(.16,.1,.3,1) both;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .desktop-navbar .nav {
@@ -9,27 +15,46 @@
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+  will-change: auto; /* reset after animation */
 }
 
 .brand img {
   width: 36px;
   height: 36px;
   border-radius: 8px;
+  transition: transform 300ms cubic-bezier(.2,.9,.25,1), filter 200ms ease;
+  will-change: transform, filter;
+}
+
+.brand img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  filter: brightness(1.1);
 }
 
 .brand .title {
   font-weight: 600;
+  transition: color 280ms ease;
+}
+
+.brand:hover .title {
+  color: var(--accent);
 }
 
 .brand .sub {
   font-size: 12px;
   color: var(--muted);
+  transition: color 280ms ease;
+}
+
+.brand:hover .sub {
+  color: var(--brand-2);
 }
 
 .brand-group {
   display: flex;
   align-items: center;
   gap: 6px;
+  position: relative; /* anchor absolute dropdowns */
 }
 
 .nav-brand-container {
@@ -59,6 +84,36 @@
   padding: 8px 10px;
   border-radius: 8px;
   font-weight: 500;
+  position: relative;
+  transition: color 180ms ease, transform 160ms ease, opacity 160ms ease, background 140ms ease;
+  will-change: transform;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border-radius: 1px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 200ms ease, transform 200ms cubic-bezier(.34,.1,.64,.1);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  transform: translateY(-3px);
+  color: var(--accent);
+}
+
+.nav-links a:hover::before,
+.nav-links a:focus-visible::before {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 /* ==================== Dropdown ==================== */
@@ -70,12 +125,26 @@
   background: transparent;
   cursor: pointer;
   border: none;
+  min-width: 40px;
+  min-height: 40px;
+  transition: background 200ms ease, transform 200ms ease;
+  will-change: transform, background;
+}
+
+.drop-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: scale(1.05);
+}
+
+.drop-btn:active {
+  transform: scale(0.98);
 }
 
 .chev {
   width: 12px;
   height: 12px;
-  transition: transform var(--transition);
+  transition: transform 300ms cubic-bezier(.34,.1,.64,.1);
+  will-change: transform;
 }
 
 .drop-btn[aria-expanded="true"] .chev {
@@ -88,13 +157,28 @@
   background: rgba(7, 10, 14, 0.96);
   border-radius: 12px;
   padding: 8px;
+  border: 1px solid rgba(255,255,255,0.02); /* subtle edge */
   box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+  /* fallback for UA without backdrop-filter */
+  background-color: rgba(7,10,14,0.96);
+  top: calc(100% + 8px);
+  left: 0;
+  transform-origin: top center;
+  z-index: 60;
   opacity: 0;
-  transform: translateY(-8px) scale(.98);
+  transform: translateY(-12px) scale(.92);
   pointer-events: none;
-  transition: opacity var(--transition), transform var(--transition);
+  transition: opacity 240ms cubic-bezier(.34,.1,.64,.1), transform 240ms cubic-bezier(.34,.1,.64,.1);
+  will-change: transform, opacity;
+}
+
+.dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: opacity 240ms cubic-bezier(.2,.9,.25,1), transform 240ms cubic-bezier(.2,.9,.25,1);
 }
 
 .dropdown.open {
@@ -109,11 +193,32 @@
   border-radius: 8px;
   text-decoration: none;
   color: var(--muted);
+  transition: color 180ms ease, background 150ms ease, transform 140ms ease;
+  will-change: transform, background;
+}
+
+.dropdown a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.dropdown a:active {
+  transform: translateX(2px) scale(0.98);
+}
+
+/* keyboard focus for dropdown items */
+.dropdown a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
+  border-radius: 8px;
+  color: var(--text);
 }
 
 /* ==================== Mobile Navbar ==================== */
 .mobile-navbar {
   display: none;
+  animation: slideDown 500ms cubic-bezier(.16,.1,.3,1) both;
 }
 
 .hamburger {
@@ -122,6 +227,22 @@
   background: transparent;
   cursor: pointer;
   border: none;
+  min-width: 40px;
+  min-height: 40px;
+  transition: background 200ms ease, transform 200ms ease;
+  will-change: transform, background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: scale(1.05);
+}
+
+.hamburger:active {
+  transform: scale(0.98);
 }
 
 /* ==================== Mobile Panel ==================== */
@@ -132,10 +253,22 @@
   z-index: 9999;
   align-items: stretch;
   justify-content: flex-end;
+  animation: fadeIn 200ms ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .overlay.hidden {
   display: none;
+  animation: fadeOut 200ms ease forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 .scrim {
@@ -145,7 +278,8 @@
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   opacity: 0;
-  transition: opacity var(--transition);
+  transition: opacity 300ms cubic-bezier(.2,.9,.25,1);
+  will-change: opacity;
 }
 
 .overlay .panel {
@@ -154,7 +288,7 @@
   box-shadow: -30px 0 60px rgba(2, 6, 23, 0.6);
   transform: translateX(14%);
   opacity: 0;
-  transition: transform 350ms cubic-bezier(.2,.9,.25,1), opacity 280ms;
+  transition: transform 350ms cubic-bezier(.2,.9,.25,1), opacity 280ms cubic-bezier(.2,.9,.25,1);
   display: flex;
   flex-direction: column;
   padding: 18px;
@@ -162,12 +296,13 @@
   backdrop-filter: blur(8px);
   border-radius: 0;
   border: none;
-  box-shadow: -30px 0 60px rgba(2, 6, 23, 0.6);
+  will-change: transform, opacity;
 }
 
 .overlay .panel.open {
   transform: translateX(0);
   opacity: 1;
+  transition: transform 350ms cubic-bezier(.16,.1,.3,1), opacity 280ms ease;
 }
 
 .panel .top {
@@ -182,11 +317,23 @@
   gap: 10px;
   text-decoration: none;
   color: inherit;
+  transition: opacity 200ms ease;
+}
+
+.brand-small:hover {
+  opacity: 0.85;
 }
 
 .brand-small img {
   width: 30px;
   height: 30px;
+  transition: transform 300ms cubic-bezier(.2,.9,.25,1), filter 200ms ease;
+  will-change: transform;
+}
+
+.brand-small:hover img {
+  transform: scale(1.08) rotate(-2deg);
+  filter: brightness(1.1);
 }
 
 .close-btn {
@@ -197,6 +344,38 @@
   cursor: pointer;
   padding: 6px;
   border-radius: 8px;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 200ms ease, background 200ms ease, transform 200ms ease;
+  will-change: transform;
+}
+
+.close-btn:hover {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.06);
+  transform: rotate(90deg);
+}
+
+.close-btn:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* focus-visible for interactive controls */
+.drop-btn:focus-visible,
+.hamburger:focus-visible,
+.close-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
+  border-radius: 8px;
+}
+
+/* Scroll-aware navbar enhancement (optional JS hook) */
+header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 400ms ease;
 }
 
 .panel nav {
@@ -212,6 +391,37 @@
   text-decoration: none;
   font-weight: 600;
   color: var(--text);
+  transition: color 180ms ease, background 150ms ease, transform 140ms ease;
+  will-change: transform, background;
+  position: relative;
+  display: block;
+}
+
+.panel nav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 200ms cubic-bezier(.34,.1,.64,.1);
+  will-change: transform;
+}
+
+.panel nav a:hover,
+.panel nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
+.panel nav a:hover::before,
+.panel nav a:focus-visible::before {
+  transform: scaleY(1);
 }
 
 .actions {
@@ -219,6 +429,20 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 14px;
+}
+
+.actions .btn {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  will-change: transform;
+}
+
+.actions .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.actions .btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .secondary {

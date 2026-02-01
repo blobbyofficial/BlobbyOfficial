@@ -948,8 +948,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const dropBtn=document.getElementById('dropToggle');
       const dropdown=document.getElementById('brandDropdown');
       let dropdownOpen=false;
-      function openDropdown(){dropdown.classList.add('open');dropBtn.setAttribute('aria-expanded','true');dropdownOpen=true;}
-      function closeDropdown(){dropdown.classList.remove('open');dropBtn.setAttribute('aria-expanded','false');dropdownOpen=false;}
+      function openDropdown(){dropdown.classList.add('open','anim-dropdown');dropBtn.setAttribute('aria-expanded','true');dropdownOpen=true;}
+      function closeDropdown(){dropdown.classList.remove('open','anim-dropdown');dropBtn.setAttribute('aria-expanded','false');dropdownOpen=false;}
       dropBtn.addEventListener('click',()=>{dropdownOpen?closeDropdown():openDropdown()});
       document.addEventListener('click',(e)=>{if(dropdownOpen&&!dropBtn.contains(e.target)&&!dropdown.contains(e.target))closeDropdown()});
       document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&dropdownOpen)closeDropdown()});
@@ -959,13 +959,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const openBtn=document.getElementById('hamburger');
       const closeBtn=document.getElementById('closeBtn');
       const scrim=document.getElementById('scrim');
-      function openPanel(){overlay.classList.remove('hidden');panel.classList.add('open');document.body.style.overflow='hidden';}
-      function closePanel(){panel.classList.remove('open');overlay.classList.add('hidden');document.body.style.overflow='';}
+      function openPanel(){overlay.classList.remove('hidden');panel.classList.add('open','anim-enter');scrim.classList.add('anim-scrim');document.body.style.overflow='hidden';}
+      function closePanel(){panel.classList.remove('open','anim-enter');scrim.classList.remove('anim-scrim');overlay.classList.add('hidden');document.body.style.overflow='';}
       openBtn.addEventListener('click',openPanel);
       closeBtn.addEventListener('click',closePanel);
       scrim.addEventListener('click',closePanel);
       document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closePanel()});
       panel.addEventListener('click',(e)=>{if(e.target.tagName.toLowerCase()==='a')closePanel()});
+
+      // Scroll-aware navbar: add subtle shadow when scrolled
+      const header=document.querySelector('header');
+      let lastScrollY=0;let ticking=false;function updateScroll(){const scrolled=window.scrollY>8;if(scrolled){header.classList.add('scrolled');}else{header.classList.remove('scrolled');}ticking=false;}function onScroll(){lastScrollY=window.scrollY;if(!ticking){window.requestAnimationFrame(updateScroll);ticking=true;}}window.addEventListener('scroll',onScroll,{passive:true});
     })();
   </script>
 
@@ -1026,6 +1030,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     window.addEventListener('load', () => {
       const timing = performance.getEntriesByType('navigation')[0];
       localStorage.setItem('lastLoadTime', timing.loadEventEnd);
+    });
+    // Small: on small screens, fade tiles and hero logo when they first appear
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!('IntersectionObserver' in window) || window.innerWidth > 480) return;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('mobile-fade');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.tile, .hero .logo').forEach(el => io.observe(el));
     });
   </script>
 

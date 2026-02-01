@@ -56,6 +56,13 @@
   .container {
     padding: 16px;
   }
+
+  .mobile-fade { animation: slideUpMobile 360ms cubic-bezier(.2,.9,.25,1) both; will-change: transform, opacity; }
+  .mobile-slide-up { animation: slideUpMobile 380ms cubic-bezier(.2,.9,.25,1) both; will-change: transform, opacity; }
+  .mobile-pulse { animation: mobilePulse 900ms ease-in-out both; will-change: transform; }
+  .anim-enter { animation: slideUpMobile 350ms cubic-bezier(.2,.9,.25,1) both; }
+  .anim-scrim { animation: scrimFade 280ms linear both; }
+  .anim-dropdown { animation: slideUpMobile 300ms cubic-bezier(.2,.9,.25,1) both; }
 }
 
 /* Small screens */
@@ -66,5 +73,17 @@
 
   .section-title {
     font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-fade,
+  .mobile-slide-up,
+  .mobile-pulse,
+  .anim-enter,
+  .anim-scrim,
+  .anim-dropdown {
+    animation: none !important;
+    transition: none !important;
   }
 }
