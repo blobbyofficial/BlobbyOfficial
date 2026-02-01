@@ -64,6 +64,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="prefetch" href="/gallery/">
 <link rel="prefetch" href="/pages/">
 
+<!-- External Stylesheets -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/animations.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/navbar.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link rel="stylesheet" href="/assets/css/scroll-animations.css">
+<link rel="stylesheet" href="/assets/css/optimization.css">
+<link rel="stylesheet" href="/assets/css/forms-footer.css">
+<link rel="stylesheet" href="/assets/css/image-optimization.css">
+<link rel="stylesheet" href="/assets/css/accessibility.css">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,10 +142,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {"@type": "Website", "url": "https://store.blobbyofficial.com"},
     {"@type": "Organization", "name": "The Official Blobby Group", "url": "https://www.roblox.com/communities/32402889/The-Official-Blobby-Group"}
   ]
-}
-</script>
 </head>
 
+<<<<<<< HEAD
 <style>
   /* ==================== Root & Variables ==================== */
   :root {
@@ -834,6 +846,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 </style>
 
+=======
+>>>>>>> 6473856d78d72a3940d3ee2c7477e7ab77dc1718
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMMSPQ8K"
@@ -959,8 +973,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const dropBtn=document.getElementById('dropToggle');
       const dropdown=document.getElementById('brandDropdown');
       let dropdownOpen=false;
-      function openDropdown(){dropdown.classList.add('open');dropBtn.setAttribute('aria-expanded','true');dropdownOpen=true;}
-      function closeDropdown(){dropdown.classList.remove('open');dropBtn.setAttribute('aria-expanded','false');dropdownOpen=false;}
+      function openDropdown(){dropdown.classList.add('open','anim-dropdown');dropBtn.setAttribute('aria-expanded','true');dropdownOpen=true;}
+      function closeDropdown(){dropdown.classList.remove('open','anim-dropdown');dropBtn.setAttribute('aria-expanded','false');dropdownOpen=false;}
       dropBtn.addEventListener('click',()=>{dropdownOpen?closeDropdown():openDropdown()});
       document.addEventListener('click',(e)=>{if(dropdownOpen&&!dropBtn.contains(e.target)&&!dropdown.contains(e.target))closeDropdown()});
       document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&dropdownOpen)closeDropdown()});
@@ -970,13 +984,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const openBtn=document.getElementById('hamburger');
       const closeBtn=document.getElementById('closeBtn');
       const scrim=document.getElementById('scrim');
-      function openPanel(){overlay.classList.remove('hidden');panel.classList.add('open');document.body.style.overflow='hidden';}
-      function closePanel(){panel.classList.remove('open');overlay.classList.add('hidden');document.body.style.overflow='';}
+      function openPanel(){overlay.classList.remove('hidden');panel.classList.add('open','anim-enter');scrim.classList.add('anim-scrim');document.body.style.overflow='hidden';}
+      function closePanel(){panel.classList.remove('open','anim-enter');scrim.classList.remove('anim-scrim');overlay.classList.add('hidden');document.body.style.overflow='';}
       openBtn.addEventListener('click',openPanel);
       closeBtn.addEventListener('click',closePanel);
       scrim.addEventListener('click',closePanel);
       document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closePanel()});
       panel.addEventListener('click',(e)=>{if(e.target.tagName.toLowerCase()==='a')closePanel()});
+
+      // Scroll-aware navbar: add subtle shadow when scrolled
+      const header=document.querySelector('header');
+      let lastScrollY=0;let ticking=false;function updateScroll(){const scrolled=window.scrollY>8;if(scrolled){header.classList.add('scrolled');}else{header.classList.remove('scrolled');}ticking=false;}function onScroll(){lastScrollY=window.scrollY;if(!ticking){window.requestAnimationFrame(updateScroll);ticking=true;}}window.addEventListener('scroll',onScroll,{passive:true});
     })();
   </script>
 
@@ -1038,6 +1056,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const timing = performance.getEntriesByType('navigation')[0];
       localStorage.setItem('lastLoadTime', timing.loadEventEnd);
     });
+    // Small: on small screens, fade tiles and hero logo when they first appear
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!('IntersectionObserver' in window) || window.innerWidth > 480) return;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('mobile-fade');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.tile, .hero .logo').forEach(el => io.observe(el));
+    });
   </script>
 
   <main id="top" class="container">
@@ -1057,25 +1088,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
 
     <!-- What I Do -->
-    <section id="work">
+    <section id="work" data-animate="fadeUpScale">
       <div class="section-title">What I Do</div>
-      <div class="grid">
-        <article class="tile">
-          <h3>Music</h3>
-          <p>
-            I produce and release music that blends various styles and influences. My goal is to create tracks that are unique, memorable, and enjoyable to listen to.
-          </p>
-        </article>
-        <article class="tile">
+      <div class="grid stagger-container">
+        <article class="tile" data-animate="fadeUpScale">
           <h3>Video Editing</h3>
           <p>
             I create high-quality TikTok edits with an efficient DaVinci Resolve workflow—perfect for polished, reliable content
           </p>
         </article>
-        <article class="tile">
+        <article class="tile" data-animate="fadeUpScale">
+          <h3>Music Production</h3>
+          <p>
+            Original beats and compositions across multiple genres, with releases on Spotify and major streaming platforms.
+          </p>
+        </article>
+        <article class="tile" data-animate="fadeUpScale">
           <h3>Roblox Development</h3>
           <p>
-            I develop Roblox projects ranging from small ideas to working experiences. I focus on UI/UX design and building. 
+            Building engaging games and experiences in Roblox, from game mechanics to UI design and optimization.
+          </p>
+        </article>
+        <article class="tile" data-animate="fadeUpScale">
+          <h3>UI/UX Design</h3>
+          <p>
+            Creating intuitive and visually appealing interfaces for web and games, focusing on user experience and accessibility.
+          </p>
+        </article>
+        <article class="tile" data-animate="fadeUpScale">
+          <h3>YouTube Content</h3>
+          <p>
+            Tutorials, behind-the-scenes, and creative breakdowns across music, design, and development topics.
+          </p>
+        </article>
+        <article class="tile" data-animate="fadeUpScale">
+          <h3>Community & Collaboration</h3>
+          <p>
+            Engaging with creators and developers, sharing knowledge, and building collaborative projects within the community.
           </p>
         </article>
       </div>
@@ -1185,40 +1234,113 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
 
     <!-- Contact -->
-    <section id="contact">
-      <div class="section-title">Contact</div>
+    <section id="contact" data-animate="fadeUpScale">
+      <div class="section-title">Contact & Connect</div>
       <div class="contact-cards">
-        <a class="contact-card" href="mailto:blobbyofficial@blobbyofficial.com">
+        <a class="contact-card" href="mailto:blobbyofficial@blobbyofficial.com" data-animate="slideInLeft">
           <img src="https://www.blobbyofficial.com/assets/images/svg/envelope.svg" alt="Email" />
           <div class="info">
             <div class="title">Email</div>
             <div class="desc">blobbyofficial@outlook.com</div>
           </div>
         </a>
+        <a class="contact-card" href="https://twitter.com/BlobbyOfficial_" target="_blank" rel="noopener noreferrer" data-animate="slideInLeft">
+          <img src="https://www.blobbyofficial.com/assets/images/svg/twitter.svg" alt="Twitter" />
+          <div class="info">
+            <div class="title">Twitter</div>
+            <div class="desc">@BlobbyOfficial_</div>
+          </div>
+        </a>
+        <a class="contact-card" href="https://discord.gg/blobbyofficial" target="_blank" rel="noopener noreferrer" data-animate="slideInRight">
+          <img src="https://www.blobbyofficial.com/assets/images/svg/discord.svg" alt="Discord" />
+          <div class="info">
+            <div class="title">Discord</div>
+            <div class="desc">Join the Community</div>
+          </div>
+        </a>
+        <a class="contact-card" href="https://commission.blobbyofficial.com" target="_blank" rel="noopener noreferrer" data-animate="slideInRight">
+          <img src="https://www.blobbyofficial.com/assets/images/svg/briefcase.svg" alt="Commissions" />
+          <div class="info">
+            <div class="title">Commissions</div>
+            <div class="desc">Hire Me for Projects</div>
+          </div>
+        </a>
       </div>
+      <form class="contact-form" id="contact-form" data-animate="fadeUpScale">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your message here..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn primary">Send Message</button>
+      </form>
     </section>
   </main>
 
 
     <footer>
       <div class="container">
-        <div class="muted">© <span id="year"></span> <a href="https://www.blobbyofficial.com" target="_blank" rel="noopener noreferrer">BlobbyOfficial</a> • All rights reserved.</div>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>BlobbyOfficial</h4>
+            <p>Musician, Creator & Digital Artist</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#work">What I Do</a></li>
+              <li><a href="https://store.blobbyofficial.com" target="_blank" rel="noopener noreferrer">Store</a></li>
+              <li><a href="https://blog.blobbyofficial.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="https://www.youtube.com/@blobby_official" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+              <li><a href="https://twitter.com/BlobbyOfficial_" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+              <li><a href="https://www.tiktok.com/@blobby.official" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+              <li><a href="https://github.com/BlobbyOfficial" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Projects</h4>
+            <ul>
+              <li><a href="/games">Games Tracker</a></li>
+              <li><a href="https://open.spotify.com/artist/5mD3VSrQZ1eIfhXNjyZCUs" target="_blank" rel="noopener noreferrer">Music</a></li>
+              <li><a href="https://commission.blobbyofficial.com" target="_blank" rel="noopener noreferrer">Commissions</a></li>
+              <li><a href="https://newsletter.blobbyofficial.com" target="_blank" rel="noopener noreferrer">Newsletter</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="muted">© <span id="year"></span> <a href="https://www.blobbyofficial.com" target="_blank" rel="noopener noreferrer">BlobbyOfficial</a> • All rights reserved.</div>
+          <div class="footer-meta">
+            <a href="/sitemap.xml" rel="sitemap">Sitemap</a> • 
+            <a href="/privacy">Privacy</a> • 
+            <a href="/terms">Terms</a>
+          </div>
+        </div>
       </div>
     </footer>
+
+    <!-- Main JavaScript Bundle -->
+    <script defer src="/main.js"></script>
 
     <script>
       // Set copyright year
       document.getElementById("year").textContent = new Date().getFullYear();
-
-      // Accessibility: Focus outline only on keyboard navigation
-      document.body.addEventListener('keydown', function(e) {
-        if (e.key === 'Tab') {
-          document.body.classList.add('user-is-tabbing');
-        }
-      });
-      document.body.addEventListener('mousedown', function() {
-        document.body.classList.remove('user-is-tabbing');
-      });
     </script>
 </body>
 </html>
