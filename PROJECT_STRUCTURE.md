@@ -101,8 +101,6 @@ BlobbyOfficial/
 ├── 📁 images/
 ├── 📁 icons/
 ├── 📁 Stickers/
-├── 📁 games/
-│   └── index.html
 │
 ├── 📄 404.html
 ├── 📄 CODE_OF_CONDUCT.md

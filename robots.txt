@@ -1,26 +1,11 @@
 User-agent: *
 
-# Block sensitive areas
-
 Disallow: /private/
 Disallow: /admin/
 
-# Allow public assets and sections
-
 Allow: /assets/
-Allow: /pages/
 Allow: /music/
-Allow: /games/
 Allow: /gallery/
 
-# Sitemap location
-
-Sitemap: [https://www.blobbyofficial.com/sitemap.xml](https://www.blobbyofficial.com/sitemap.xml)
-
-# Optional: crawl rate
-
-Crawl-delay: 10
-
-# Preferred host 
-
-Host: [www.blobbyofficial.com](http://www.blobbyofficial.com)
+Sitemap: https://www.blobbyofficial.com/sitemap.xml
+Host: www.blobbyofficial.com

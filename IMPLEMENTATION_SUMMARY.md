@@ -170,7 +170,7 @@ Comprehensive module-based architecture with:
   1. Brand & Description
   2. Quick Links (About, Store, Blog, etc.)
   3. Community (YouTube, Twitter, TikTok, GitHub)
-  4. Projects (Games, Music, Commissions, Newsletter)
+  4. Projects (Music, Commissions, Newsletter)
 - Footer links with animated underlines
 - Bottom section: Copyright + Sitemap/Privacy/Terms
 - Mobile responsive (collapses to single column)
@@ -398,8 +398,6 @@ BlobbyOfficial/
 │   ├── images/
 │   ├── icons/
 │   └── Stickers/
-├── games/
-│   └── index.html
 └── [other files]
 ```
 
