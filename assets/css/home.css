@@ -28,7 +28,7 @@
   left: -6rem;
   width: 28rem;
   height: 28rem;
-  background: rgba(92, 47, 145, 0.34);
+  background: rgba(111, 63, 230, 0.32);
 }
 
 .page-glow-b {
@@ -36,7 +36,7 @@
   right: -8rem;
   width: 24rem;
   height: 24rem;
-  background: rgba(34, 211, 238, 0.24);
+  background: rgba(61, 217, 255, 0.22);
 }
 
 .page-grid {
@@ -90,6 +90,33 @@ html[data-reveal-ready="true"] [data-reveal].is-visible {
     var(--panel);
   box-shadow: var(--shadow);
   backdrop-filter: blur(22px);
+  animation: floatSurface 8s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.feature-card,
+.project-card,
+.store-card,
+.connect-card,
+.process-card {
+  animation-duration: 9s;
+}
+
+.hero-card,
+.store-featured,
+.cta-panel {
+  animation-duration: 10.5s;
+}
+
+@keyframes floatSurface {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 html[data-theme="light"] .hero-card,
@@ -174,6 +201,18 @@ html[data-theme="light"] .cta-panel {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.03);
+  animation: softPulse 7s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    border-color: var(--line);
+  }
+
+  50% {
+    border-color: var(--line-strong);
+  }
 }
 
 .hero-points li::before {
@@ -210,6 +249,18 @@ html[data-theme="light"] .cta-panel {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   box-shadow: 0 16px 40px rgba(2, 6, 23, 0.3);
+  animation: badgeBreathe 4.5s ease-in-out infinite;
+}
+
+@keyframes badgeBreathe {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
 }
 
 html[data-theme="light"] .badge {
@@ -318,6 +369,7 @@ html[data-theme="light"] .badge {
   border: 1px solid rgba(148, 163, 184, 0.16);
   border-radius: 999px;
   pointer-events: none;
+  animation: orbitSpin 14s linear infinite;
 }
 
 .hero-orbit-a {
@@ -332,6 +384,18 @@ html[data-theme="light"] .badge {
   left: 8%;
   width: 11rem;
   height: 11rem;
+  animation-duration: 19s;
+  animation-direction: reverse;
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .feature-grid,
@@ -494,6 +558,18 @@ html[data-theme="light"] .badge {
   background: linear-gradient(135deg, var(--brand), var(--accent) 58%, var(--brand-2));
   color: #f8fafc;
   box-shadow: 0 16px 36px rgba(92, 47, 145, 0.22);
+  animation: activeChipGlow 3s ease-in-out infinite;
+}
+
+@keyframes activeChipGlow {
+  0%,
+  100% {
+    box-shadow: 0 12px 30px rgba(92, 47, 145, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 18px 38px rgba(61, 217, 255, 0.26);
+  }
 }
 
 .store-layout {
@@ -745,6 +821,18 @@ html[data-theme="light"] .store-featured__caption {
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
     rgba(8, 14, 27, 0.45);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: iconBreath 4.8s ease-in-out infinite;
+}
+
+@keyframes iconBreath {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
 }
 
 .connect-icon svg {
@@ -793,6 +881,7 @@ html[data-theme="light"] .store-featured__caption {
   background: rgba(124, 58, 237, 0.08);
   box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.1);
   transform: translate3d(var(--cursor-ring-x, -999px), var(--cursor-ring-y, -999px), 0);
+  will-change: transform;
 }
 
 .cursor-dot {
@@ -802,6 +891,7 @@ html[data-theme="light"] .store-featured__caption {
   border-radius: 999px;
   background: linear-gradient(135deg, var(--brand), var(--brand-2));
   transform: translate3d(var(--cursor-dot-x, -999px), var(--cursor-dot-y, -999px), 0);
+  will-change: transform;
 }
 
 body.has-custom-cursor,
@@ -939,6 +1029,20 @@ body.cursor-pressing .cursor-ring {
   .connect-card {
     grid-template-columns: 1fr;
   }
+
+  .hero-copy h1 {
+    max-width: 100%;
+  }
+
+  .hero-points li,
+  .metric-card,
+  .store-card,
+  .feature-card,
+  .project-card,
+  .process-card,
+  .connect-card {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 479px) {
@@ -971,8 +1075,15 @@ body.cursor-pressing .cursor-ring {
 
   .hero-actions .button,
   .cta-actions .button,
-  .store-intro .button {
+  .store-intro .button,
+  .store-card__link,
+  .filter-chip {
     width: 100%;
+  }
+
+  .store-filters {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .project-card-head,
@@ -1026,13 +1137,19 @@ body.cursor-pressing .cursor-ring {
   }
 
   .progress-fill,
+  .hero-card,
+  .store-featured,
   .feature-card,
   .project-card,
   .store-card,
   .connect-card,
   .process-card,
   .filter-chip,
-  .store-card__link {
+  .store-card__link,
+  .hero-points li,
+  .badge,
+  .hero-orbit,
+  .connect-icon {
     animation: none !important;
     transition: none !important;
   }

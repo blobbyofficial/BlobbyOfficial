@@ -420,19 +420,20 @@
     let pointerY = window.innerHeight / 2;
     let ringX = pointerX;
     let ringY = pointerY;
+    let rafId = 0;
 
     body.classList.add("has-custom-cursor", "cursor-hidden");
 
     function renderCursor() {
-      ringX += (pointerX - ringX) * 0.18;
-      ringY += (pointerY - ringY) * 0.18;
+      ringX += (pointerX - ringX) * 0.32;
+      ringY += (pointerY - ringY) * 0.32;
 
       root.style.setProperty("--cursor-dot-x", `${pointerX}px`);
       root.style.setProperty("--cursor-dot-y", `${pointerY}px`);
       root.style.setProperty("--cursor-ring-x", `${ringX}px`);
       root.style.setProperty("--cursor-ring-y", `${ringY}px`);
 
-      requestAnimationFrame(renderCursor);
+      rafId = requestAnimationFrame(renderCursor);
     }
 
     function hideCursor() {
@@ -446,9 +447,17 @@
       body.classList.remove("cursor-hidden");
     }
 
+    function handlePointerLeaveWindow(event) {
+      if (event.clientY <= 0 || event.clientX <= 0 || event.clientX >= window.innerWidth) {
+        hideCursor();
+      }
+    }
+
     window.addEventListener("pointermove", showCursor);
     window.addEventListener("pointerdown", () => body.classList.add("cursor-pressing"));
     window.addEventListener("pointerup", () => body.classList.remove("cursor-pressing"));
+    window.addEventListener("mouseleave", hideCursor);
+    window.addEventListener("mouseout", handlePointerLeaveWindow);
     window.addEventListener("blur", hideCursor);
     document.addEventListener("mouseout", (event) => {
       if (!event.relatedTarget) {
@@ -463,7 +472,9 @@
       node.addEventListener("blur", () => body.classList.remove("cursor-hovering"));
     });
 
-    renderCursor();
+    if (!rafId) {
+      renderCursor();
+    }
   }
 
   function init() {
