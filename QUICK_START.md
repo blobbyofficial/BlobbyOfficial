@@ -20,7 +20,8 @@ Your website has been completely transformed with:
 ### New Files Created
 ```
 /sw.js                                  - Service Worker (offline support)
-/main.js                                - JavaScript bundle (animations, form validation)
+/main.js                                - Legacy loader for backward compatibility
+/assets/js/pages/home.js                 - Home page interactions (modular static script)
 /IMPLEMENTATION_SUMMARY.md              - Complete feature documentation
 /PERFORMANCE_TESTING.md                 - Testing and optimization guide
 /QUICK_START.md                         - This file
