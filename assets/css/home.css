@@ -311,15 +311,19 @@ html[data-theme="light"] .badge {
 }
 
 .hero-portrait {
-  width: min(100%, 14rem);
+  width: clamp(9.5rem, 32vw, 14rem);
+  max-width: 100%;
   aspect-ratio: 1;
+  height: auto;
   justify-self: center;
+  object-fit: contain;
   border-radius: 28px;
   border: 1px solid var(--line);
   background:
     radial-gradient(circle at top, rgba(34, 211, 238, 0.16), transparent 36%),
     rgba(255, 255, 255, 0.03);
   padding: 0.65rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .hero-card-copy {
