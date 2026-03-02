@@ -1,8 +1,6 @@
 (() => {
-  const STORAGE_KEY = "blobby-theme";
   const THEME_COLORS = {
-    dark: "#0b1020",
-    light: "#eef4fb"
+    dark: "#070b14"
   };
 
   const root = document.documentElement;
@@ -10,7 +8,6 @@
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
   const desktopViewport = window.matchMedia("(min-width: 1024px)");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const queryAll = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
@@ -30,31 +27,9 @@
     return Boolean(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
   }
 
-  function getStoredTheme() {
-    try {
-      return localStorage.getItem(STORAGE_KEY);
-    } catch {
-      return null;
-    }
-  }
-
-  function saveTheme(theme) {
-    try {
-      localStorage.setItem(STORAGE_KEY, theme);
-    } catch {}
-  }
-
-  function getSystemTheme() {
-    return prefersDark.matches ? "dark" : "light";
-  }
-
-  function getCurrentTheme() {
-    return root.dataset.theme === "light" ? "light" : "dark";
-  }
-
-  function applyTheme(theme, persist = false) {
-    const nextTheme = theme === "light" ? "light" : "dark";
-    const alternateTheme = nextTheme === "dark" ? "light" : "dark";
+  function applyTheme() {
+    const nextTheme = "dark";
+    const alternateTheme = "light";
 
     root.dataset.theme = nextTheme;
 
@@ -67,19 +42,15 @@
     }
 
     queryAll("[data-theme-label]").forEach((label) => {
-      label.textContent = nextTheme === "light" ? "Light mode" : "Dark mode";
+      label.textContent = "Dark mode";
     });
 
     queryAll("[data-theme-toggle]").forEach((button) => {
       button.setAttribute("aria-label", `Switch to ${alternateTheme} mode`);
       button.setAttribute("title", `Switch to ${alternateTheme} mode`);
-      button.setAttribute("aria-pressed", String(nextTheme === "light"));
+      button.setAttribute("aria-pressed", "false");
       button.dataset.themeValue = nextTheme;
     });
-
-    if (persist) {
-      saveTheme(nextTheme);
-    }
   }
 
   function setYear() {
@@ -112,29 +83,6 @@
       } else {
         link.removeAttribute("aria-current");
       }
-    });
-  }
-
-  function setupThemeToggle() {
-    const buttons = queryAll("[data-theme-toggle]");
-
-    if (!buttons.length) {
-      return;
-    }
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const nextTheme = getCurrentTheme() === "dark" ? "light" : "dark";
-        applyTheme(nextTheme, true);
-      });
-    });
-
-    listen(prefersDark, (event) => {
-      if (getStoredTheme()) {
-        return;
-      }
-
-      applyTheme(event.matches ? "dark" : "light", false);
     });
   }
 
@@ -261,10 +209,9 @@
   }
 
   function init() {
-    applyTheme(getStoredTheme() || getSystemTheme(), false);
+    applyTheme();
     setYear();
     setupPageLinkHighlight();
-    setupThemeToggle();
     setupDrawer();
     registerServiceWorker();
   }

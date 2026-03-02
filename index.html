@@ -9,7 +9,7 @@
     content="BlobbyOfficial creates premium TikTok edits, long-form video editing, and DaVinci Resolve presets with a polished, retention-first finish."
   >
   <meta name="theme-color" content="#0b1020">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="dark">
   <meta property="og:title" content="BlobbyOfficial | Video Editing, Long-Form Cuts & DaVinci Resolve Presets">
   <meta
     property="og:description"
@@ -37,22 +37,13 @@
     rel="stylesheet"
   >
   <script>
-    (() => {
-      try {
-        const savedTheme = localStorage.getItem("blobby-theme");
-        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        document.documentElement.dataset.theme = savedTheme || systemTheme;
-      } catch {
-        document.documentElement.dataset.theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      }
-    })();
+    document.documentElement.dataset.theme = "dark";
   </script>
   <link rel="stylesheet" href="assets/css/site-shell.css">
   <link rel="stylesheet" href="assets/css/home.css">
   <script defer src="assets/js/site-shell.js"></script>
-  <script defer src="main.js"></script>
+  <script type="module" src="assets/js/pages/home.js"></script>
+  <script defer src="assets/js/animation-lab.js"></script>
 </head>
 <body class="home-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -82,7 +73,7 @@
       <nav class="shell-nav" aria-label="Primary navigation">
         <ul class="shell-nav__list">
           <li><a class="shell-nav__link" href="#work" data-section-link>Work</a></li>
-          <li><a class="shell-nav__link" href="#queue" data-section-link>Queue</a></li>
+          <li><a class="shell-nav__link" href="#results" data-section-link>Results</a></li>
           <li><a class="shell-nav__link" href="#store" data-section-link>Store</a></li>
           <li><a class="shell-nav__link" href="#process" data-section-link>Process</a></li>
           <li><a class="shell-nav__link" href="#links" data-section-link>Links</a></li>
@@ -90,10 +81,6 @@
       </nav>
 
       <div class="shell-header__utilities">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-          <span class="theme-toggle__swatch" aria-hidden="true"></span>
-          <span class="theme-toggle__label" data-theme-label>Dark mode</span>
-        </button>
 
         <div class="shell-header__cta">
           <a
@@ -162,19 +149,11 @@
         <p class="nav-drawer__section-label">Browse</p>
         <nav class="nav-drawer__nav">
           <a href="#work" data-section-link>Work</a>
-          <a href="#queue" data-section-link>Queue</a>
+          <a href="#results" data-section-link>Results</a>
           <a href="#store" data-section-link>Store</a>
           <a href="#process" data-section-link>Process</a>
           <a href="#links" data-section-link>Links</a>
         </nav>
-      </div>
-
-      <div class="nav-drawer__block">
-        <p class="nav-drawer__section-label">Theme</p>
-        <button class="theme-toggle theme-toggle--drawer" type="button" data-theme-toggle aria-label="Switch theme">
-          <span class="theme-toggle__swatch" aria-hidden="true"></span>
-          <span class="theme-toggle__label" data-theme-label>Dark mode</span>
-        </button>
       </div>
 
       <div class="nav-drawer__block">
@@ -202,7 +181,6 @@
       <div class="nav-drawer__block">
         <p class="nav-drawer__section-label">Elsewhere</p>
         <div class="nav-drawer__secondary">
-          <a href="games/" data-page-link="games/">Games Tracker</a>
           <a href="https://www.youtube.com/@blobby_official" target="_blank" rel="noopener noreferrer">YouTube</a>
           <a href="https://discord.gg/quq8thpMEd" target="_blank" rel="noopener noreferrer">Discord</a>
         </div>
@@ -247,15 +225,17 @@
 
           <img
             class="hero-portrait"
-            src="assets/icons/circle_icon_1920x1920.png"
+            src="assets/icons/icon_1080x1080.png"
             alt="BlobbyOfficial brand artwork"
-            width="480"
-            height="480"
+            width="320"
+            height="320"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
           >
 
           <p class="hero-card-copy">
-            The figures below are manual rather than live. Update the hard-coded values whenever
-            your TikTok following, YouTube view count, or preset catalogue changes.
+            Performance snapshot across core channels and products. Numbers are curated to reflect current momentum and releases.
           </p>
 
           <div class="hero-metrics">
@@ -328,13 +308,12 @@
       </div>
     </section>
 
-    <section class="section shell" id="queue">
+    <section class="section shell" id="results">
       <div class="section-heading" data-reveal="up">
-        <p class="eyebrow">Queue</p>
-        <h2>What is currently moving through the timeline.</h2>
+        <p class="eyebrow">Results</p>
+        <h2>Current delivery momentum.</h2>
         <p>
-          Update progress by changing only the <code>data-percent</code> value on each card. The
-          bar width, status text, and visual effect all adapt automatically.
+          A live-style view of current production priorities across short-form edits, long-form episodes, and upcoming presets.
         </p>
       </div>
 
@@ -342,8 +321,8 @@
         <article class="project-card progress-card" data-reveal="up" data-progress-card data-percent="8">
           <div class="project-card-head">
             <div>
-              <p class="card-kicker">Current Queue</p>
-              <h3 id="next-edit-title">Next Edit</h3>
+              <p class="card-kicker">Pipeline</p>
+              <h3 id="next-edit-title">Short-Form Sprint</h3>
             </div>
             <span class="progress-value" data-progress-value>0%</span>
           </div>
@@ -353,7 +332,7 @@
           </p>
           <div class="progress-meta">
             <span class="progress-label" data-progress-status>Planning</span>
-            <span class="progress-hint">Change <code>data-percent</code> in the HTML</span>
+            <span class="progress-hint">Updated weekly</span>
           </div>
           <div
             class="progress-bar"
@@ -371,8 +350,8 @@
         <article class="project-card progress-card" data-reveal="up" style="--delay: 0.08s;" data-progress-card data-percent="64">
           <div class="project-card-head">
             <div>
-              <p class="card-kicker">Current Queue</p>
-              <h3 id="next-longform-title">Next Longform</h3>
+              <p class="card-kicker">Pipeline</p>
+              <h3 id="next-longform-title">Longform Episode</h3>
             </div>
             <span class="progress-value" data-progress-value>0%</span>
           </div>
@@ -382,7 +361,7 @@
           </p>
           <div class="progress-meta">
             <span class="progress-label" data-progress-status>Polishing</span>
-            <span class="progress-hint">Change <code>data-percent</code> in the HTML</span>
+            <span class="progress-hint">Updated weekly</span>
           </div>
           <div
             class="progress-bar"
@@ -400,8 +379,8 @@
         <article class="project-card progress-card" data-reveal="up" style="--delay: 0.16s;" data-progress-card data-percent="93">
           <div class="project-card-head">
             <div>
-              <p class="card-kicker">Current Queue</p>
-              <h3 id="next-preset-title">Next Preset</h3>
+              <p class="card-kicker">Pipeline</p>
+              <h3 id="next-preset-title">Preset Launch</h3>
             </div>
             <span class="progress-value" data-progress-value>0%</span>
           </div>
@@ -411,7 +390,7 @@
           </p>
           <div class="progress-meta">
             <span class="progress-label" data-progress-status>Exporting</span>
-            <span class="progress-hint">Change <code>data-percent</code> in the HTML</span>
+            <span class="progress-hint">Updated weekly</span>
           </div>
           <div
             class="progress-bar"
@@ -443,8 +422,7 @@
           <p class="card-kicker">Store Direction</p>
           <h3>Lead with the job each pack solves, then link straight into the shop.</h3>
           <p>
-            Keep this section curated rather than live-fed. Swap titles, blurbs, and links
-            whenever the preset catalogue changes.
+            A curated storefront highlight focused on practical packs that accelerate delivery without sacrificing quality.
           </p>
         </div>
         <a
@@ -809,7 +787,6 @@
           <a href="#top">Top</a>
           <a href="#work">Work</a>
           <a href="#store">Store</a>
-          <a href="games/" data-page-link="games/">Games</a>
           <a href="#links">Links</a>
         </nav>
       </div>
