@@ -377,8 +377,9 @@ All tiles include:
 ```
 BlobbyOfficial/
 ├── index.html                          # Main HTML (enhanced)
-├── main.js                            # Main JavaScript bundle (NEW)
+├── main.js                            # Legacy compatibility loader
 ├── sw.js                              # Service Worker (NEW)
+├── assets/js/pages/home.js            # Main home-page logic
 ├── PERFORMANCE_TESTING.md             # Testing guide (NEW)
 ├── IMPLEMENTATION_SUMMARY.md          # This file (NEW)
 ├── assets/
