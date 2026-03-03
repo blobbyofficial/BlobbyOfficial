@@ -1,0 +1,122 @@
+{
+  "schema": "blobby.portfolio.profile.v2",
+  "updatedAt": "2026-03-03",
+  "platforms": [
+    {
+      "name": "YouTube",
+      "handle": "@blobby_official",
+      "url": "https://www.youtube.com/@blobby_official",
+      "description": "Longform and shortform edits with retention-focused pacing."
+    },
+    {
+      "name": "TikTok",
+      "handle": "@blobbyofficial",
+      "url": "https://www.tiktok.com/@blobbyofficial",
+      "description": "High-frequency short edits with punchy storytelling hooks."
+    },
+    {
+      "name": "Discord",
+      "handle": "BlobbyOfficial Community",
+      "url": "https://discord.gg/quq8thpMEd",
+      "description": "Client updates, collaboration threads, and creator support."
+    }
+  ],
+  "stats": [
+    {
+      "label": "Average retention uplift",
+      "value": "+22%",
+      "context": "Across recent short-form optimization projects."
+    },
+    {
+      "label": "Typical revision rounds",
+      "value": "1-2",
+      "context": "Clear brief + structured handoff keeps cycles efficient."
+    },
+    {
+      "label": "Response window",
+      "value": "<48h",
+      "context": "Most project inquiries get a first reply in under two days."
+    }
+  ],
+  "highlights": [
+    {
+      "title": "Narrative-first editing",
+      "summary": "Each cut supports story clarity before adding visual complexity."
+    },
+    {
+      "title": "Platform-native outputs",
+      "summary": "Exports and pacing decisions are tailored to platform behavior and audience expectations."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Brand launch teaser",
+      "platform": "YouTube",
+      "type": "Launch Campaign",
+      "summary": "Trailer-style launch edit with high-energy rhythm and multi-phase reveal pacing.",
+      "tags": ["Trailer", "Brand", "Narrative"],
+      "media": {
+        "type": "image",
+        "src": "/assets/images/banner.png",
+        "alt": "Brand launch teaser frame"
+      },
+      "link": "https://www.youtube.com/@blobby_official"
+    },
+    {
+      "title": "Retention-focused short",
+      "platform": "TikTok",
+      "type": "Short Form",
+      "summary": "Fast-paced social edit with visual pattern interrupts and hook optimization.",
+      "tags": ["Short Form", "Retention", "Hook"],
+      "media": {
+        "type": "image",
+        "src": "/assets/images/preview.png",
+        "alt": "Short form editing timeline"
+      },
+      "link": "https://www.tiktok.com/@blobbyofficial"
+    },
+    {
+      "title": "Creator reel showcase",
+      "platform": "YouTube",
+      "type": "Showreel",
+      "summary": "Portfolio montage that balances cinematic transitions with informational pacing.",
+      "tags": ["Showreel", "Montage", "Creator"],
+      "media": {
+        "type": "video",
+        "src": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      },
+      "link": "https://www.youtube.com/@blobby_official"
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "Creator A",
+      "rating": 5,
+      "text": "Super clean pacing and instant communication. Our first upload after the edit had noticeably stronger watch time."
+    },
+    {
+      "author": "Brand Team B",
+      "rating": 5,
+      "text": "Professional turnaround, clear revisions process, and deliverables were ready for every platform."
+    },
+    {
+      "author": "Streamer C",
+      "rating": 4,
+      "text": "Great storytelling upgrades and much stronger opening hooks."
+    }
+  ],
+  "faq": [
+    {
+      "question": "What do I need before requesting an edit?",
+      "answer": "A clear brief, source files, and platform target are enough to begin scope planning."
+    },
+    {
+      "question": "Do you handle both shortform and longform?",
+      "answer": "Yes. Workflow and pacing strategy are adapted for each format and objective."
+    },
+    {
+      "question": "How are revisions handled?",
+      "answer": "Revisions follow the published policy with transparent checkpoints and clear delivery expectations."
+    }
+  ]
+}

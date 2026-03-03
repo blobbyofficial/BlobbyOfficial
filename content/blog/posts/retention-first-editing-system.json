@@ -1,0 +1,23 @@
+{
+  "schema": "blobby.blog.post.v2",
+  "title": "Building a Retention-First Editing System",
+  "date": "2026-03-01",
+  "author": "BlobbyOfficial",
+  "readTime": 7,
+  "tags": ["Editing", "Short Form", "Workflow"],
+  "cover": "/assets/images/banner.png",
+  "lede": "Most creators don’t need more effects. They need **clearer decisions** that control curiosity and payoff.",
+  "blocks": [
+    {"type": "text", "content": "This framework is designed around intent: hook, context, escalation, payoff."},
+    {"type": "heading", "level": 2, "content": "1) Hook Architecture"},
+    {"type": "list", "items": ["First frame communicates conflict", "First sentence sets promise", "First 3 seconds visually escalate"]},
+    {"type": "image", "src": "/assets/images/preview.png", "alt": "Timeline preview", "caption": "A high-performing opening stays clear before it gets fancy."},
+    {"type": "heading", "level": 2, "content": "2) Rhythm and Cadence"},
+    {"type": "text", "content": "Use velocity changes intentionally: fast cuts establish momentum, then strategic pauses reset attention and build contrast."},
+    {"type": "quote", "content": "Retention comes from clarity and curiosity, not chaos.", "citation": "BlobbyOfficial editing notes"},
+    {"type": "callout", "title": "Pro move", "content": "Add a *micro-open-loop* every 20-35 seconds by previewing what comes next."},
+    {"type": "table", "headers": ["Segment", "Goal", "Length"], "rows": [["Hook", "Tension + promise", "0:00-0:15"], ["Context", "Frame stakes", "0:15-0:45"], ["Escalation", "Build novelty", "0:45-2:30"], ["Payoff", "Deliver promise", "2:30+"]]},
+    {"type": "references", "items": ["YouTube audience retention graph review, internal sample set (Q1)", "Competitive study: top 20 shorts in niche"]},
+    {"type": "links", "items": [{"label": "Commission an edit", "url": "/commission/"}, {"label": "Browse preset packs", "url": "/store/"}]}
+  ]
+}

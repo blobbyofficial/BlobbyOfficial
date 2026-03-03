@@ -9,23 +9,18 @@ BlobbyOfficial/
 │   ├── Contact form with validation
 │   ├── Expanded "What I Do" section (6 tiles)
 │   ├── Linked to new CSS files
-│   ├── Linked to main.js (Service Worker + animations)
+│   ├── Linked to modular home script (assets/js/pages/home.js)
 │   └── Enhanced footer with multiple sections
 │
-├── 📄 main.js (NEW) ⭐
-│   ├── Service Worker registration
-│   ├── Performance monitoring (LCP, FID, CLS)
-│   ├── ScrollAnimator (scroll-triggered animations)
-│   ├── ParallaxManager (parallax effects)
-│   ├── PageTransition (smooth page transitions)
-│   ├── SmoothScroll (navbar-aware scrolling)
-│   ├── ScrollSpy (active link highlighting)
-│   ├── SwipeNavigation (mobile gestures)
-│   ├── ButtonInteractions (ripples, hover effects)
-│   ├── FormValidator (real-time validation)
-│   ├── LazyLoadManager (image lazy loading)
-│   ├── FocusManagement (keyboard navigation)
-│   └── ReducedMotionSupport (accessibility)
+├── 📄 main.js (Compatibility loader)
+│   └── Redirects legacy references to assets/js/pages/home.js
+│
+├── 📁 assets/js/pages/home.js ⭐
+│   ├── Reveal and motion orchestration
+│   ├── Counter + progress UI behavior
+│   ├── Navigation active-state tracking
+│   ├── Store filter controls
+│   └── Custom cursor interactions
 │
 ├── 📄 sw.js (NEW) ⭐
 │   ├── Service Worker registration
@@ -106,8 +101,6 @@ BlobbyOfficial/
 ├── 📁 images/
 ├── 📁 icons/
 ├── 📁 Stickers/
-├── 📁 games/
-│   └── index.html
 │
 ├── 📄 404.html
 ├── 📄 CODE_OF_CONDUCT.md
