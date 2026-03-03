@@ -6,7 +6,58 @@
 <script defer src="/assets/js/site-shell.js"></script><script defer src="/assets/js/pages/store.js"></script>
 </head><body>
 <a class="skip-link" href="#main-content">Skip to content</a>
-<header class="shell-header"><div class="shell shell-header__bar"><a class="shell-brand" href="/"><img class="shell-brand__mark" src="/assets/icons/icon_1080x1080.png" alt="" width="40" height="40"><span class="shell-brand__copy"><span class="shell-brand__title">BlobbyOfficial</span></span></a><nav class="shell-nav"><ul class="shell-nav__list"><li><a class="shell-nav__link" href="/portfolio/">Portfolio</a></li><li><a class="shell-nav__link" href="/store/">Store</a></li><li><a class="shell-nav__link" href="/commission/">Commission</a></li><li><a class="shell-nav__link" href="/blog/">Blog</a></li><li><a class="shell-nav__link" href="/newsletter/">Newsletter</a></li></ul></nav><div class="shell-header__utilities"><a class="button button-secondary" href="/">Home</a></div></div></header>
+<header class="shell-header"><div class="shell shell-header__bar"><a class="shell-brand" href="/"><img class="shell-brand__mark" src="/assets/icons/icon_1080x1080.png" alt="" width="40" height="40"><span class="shell-brand__copy"><span class="shell-brand__title">BlobbyOfficial</span></span></a><nav class="shell-nav"><ul class="shell-nav__list">
+          <li><a class="shell-nav__link" href="/">Home</a></li>
+          <li><a class="shell-nav__link" href="/portfolio/">Portfolio</a></li>
+          <li><a class="shell-nav__link" href="/store/">Store</a></li>
+          <li><a class="shell-nav__link" href="/commission/">Commission</a></li>
+          <li><a class="shell-nav__link" href="/blog/">Blog</a></li>
+          <li><a class="shell-nav__link" href="/newsletter/">Newsletter</a></li>
+        </ul></nav><div class="shell-header__utilities">
+        <div class="shell-header__cta">
+          <a class="button button-secondary" href="/store/">View Presets</a>
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="nav-drawer" id="site-drawer" data-nav-drawer hidden>
+    <div class="nav-backdrop" data-nav-backdrop></div>
+    <aside class="nav-drawer__panel" aria-label="Mobile navigation">
+      <div class="nav-drawer__header">
+        <a class="shell-brand" href="/">
+          <img class="shell-brand__mark" src="/assets/icons/icon_1080x1080.png" alt="" width="48" height="48">
+          <span class="shell-brand__copy"><span class="shell-brand__title">BlobbyOfficial</span><span class="shell-brand__subtitle">Editing and preset workflow</span></span>
+        </a>
+        <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Browse</p>
+        <nav class="nav-drawer__nav">
+          <a href="/">Home</a><a href="/portfolio/">Portfolio</a><a href="/store/">Store</a><a href="/commission/">Commission</a><a href="/blog/">Blog</a><a href="/newsletter/">Newsletter</a>
+        </nav>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Actions</p>
+        <div class="nav-drawer__actions">
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
+          <a class="button button-secondary" href="/store/">View Presets</a>
+        </div>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Elsewhere</p>
+        <div class="nav-drawer__secondary">
+          <a href="https://www.youtube.com/@blobby_official" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://discord.gg/quq8thpMEd" target="_blank" rel="noopener noreferrer">Discord</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
 <main id="main-content" class="shell page-main" tabindex="-1">
   <section class="page-hero"><p class="page-meta">Manage products in <code>/content/store/products.json</code></p><h1>Preset Store</h1><p>Search and filter products. Each product has its own page and a Gumroad outbound button for external checkout.</p></section>
   <section class="toolbar"><input class="input" data-store-search placeholder="Search products..."><select class="select" data-store-filter></select></section>

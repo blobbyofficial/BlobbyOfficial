@@ -58,12 +58,52 @@
       </nav>
 
       <div class="shell-header__utilities">
-        <a class="button button-secondary" href="/store/">View Presets</a>
+        <div class="shell-header__cta">
+          <a class="button button-secondary" href="/store/">View Presets</a>
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main id="main-content" class="shell error-main" tabindex="-1">
+
+
+  <div class="nav-drawer" id="site-drawer" data-nav-drawer hidden>
+    <div class="nav-backdrop" data-nav-backdrop></div>
+    <aside class="nav-drawer__panel" aria-label="Mobile navigation">
+      <div class="nav-drawer__header">
+        <a class="shell-brand" href="/">
+          <img class="shell-brand__mark" src="/assets/icons/icon_1080x1080.png" alt="" width="48" height="48">
+          <span class="shell-brand__copy"><span class="shell-brand__title">BlobbyOfficial</span><span class="shell-brand__subtitle">Editing and preset workflow</span></span>
+        </a>
+        <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Browse</p>
+        <nav class="nav-drawer__nav">
+          <a href="/">Home</a><a href="/portfolio/">Portfolio</a><a href="/store/">Store</a><a href="/commission/">Commission</a><a href="/blog/">Blog</a><a href="/newsletter/">Newsletter</a>
+        </nav>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Actions</p>
+        <div class="nav-drawer__actions">
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
+          <a class="button button-secondary" href="/store/">View Presets</a>
+        </div>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Elsewhere</p>
+        <div class="nav-drawer__secondary">
+          <a href="https://www.youtube.com/@blobby_official" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://discord.gg/quq8thpMEd" target="_blank" rel="noopener noreferrer">Discord</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+<main id="main-content" class="shell error-main" tabindex="-1">
     <section class="surface-panel error-panel" aria-labelledby="error-title">
       <p class="error-code" aria-hidden="true">404</p>
       <h1 id="error-title" class="error-title">This page is off timeline.</h1>
