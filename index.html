@@ -72,6 +72,17 @@
 
       <nav class="shell-nav" aria-label="Primary navigation">
         <ul class="shell-nav__list">
+ codex/redesign-website-for-improved-aesthetics-a0lias
+          <li><a class="shell-nav__link" href="/">Home</a></li>
+          <li><a class="shell-nav__link" href="/portfolio/">Portfolio</a></li>
+          <li><a class="shell-nav__link" href="/store/">Store</a></li>
+          <li><a class="shell-nav__link" href="/commission/">Commission</a></li>
+          <li><a class="shell-nav__link" href="/blog/">Blog</a></li>
+                  </ul>
+      </nav>
+
+      <div class="shell-header__utilities">
+=======
           <li><a class="shell-nav__link" href="#work" data-section-link>Work</a></li>
           <li><a class="shell-nav__link" href="#results" data-section-link>Results</a></li>
           <li><a class="shell-nav__link" href="#store" data-section-link>Store</a></li>
@@ -82,23 +93,10 @@
 
       <div class="shell-header__utilities">
 
+ main
         <div class="shell-header__cta">
-          <a
-            class="button button-secondary"
-            href="https://store.blobbyofficial.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Presets
-          </a>
-          <a
-            class="button button-primary magnetic"
-            href="https://commission.blobbyofficial.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book an Edit
-          </a>
+          <a class="button button-secondary" href="/store/">View Presets</a>
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
         </div>
 
         <button
@@ -148,41 +146,41 @@
       <div class="nav-drawer__block">
         <p class="nav-drawer__section-label">Browse</p>
         <nav class="nav-drawer__nav">
+ codex/redesign-website-for-improved-aesthetics-a0lias
+          <a href="/">Home</a>
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/store/">Store</a>
+          <a href="/commission/">Commission</a>
+          <a href="/blog/">Blog</a>
+                  </nav>
+=======
           <a href="#work" data-section-link>Work</a>
           <a href="#results" data-section-link>Results</a>
           <a href="#store" data-section-link>Store</a>
           <a href="#process" data-section-link>Process</a>
           <a href="#links" data-section-link>Links</a>
         </nav>
+ main
       </div>
 
       <div class="nav-drawer__block">
         <p class="nav-drawer__section-label">Actions</p>
         <div class="nav-drawer__actions">
-          <a
-            class="button button-primary"
-            href="https://commission.blobbyofficial.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book an Edit
-          </a>
-          <a
-            class="button button-secondary"
-            href="https://store.blobbyofficial.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Presets
-          </a>
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
+          <a class="button button-secondary" href="/store/">View Presets</a>
         </div>
       </div>
 
       <div class="nav-drawer__block">
         <p class="nav-drawer__section-label">Elsewhere</p>
         <div class="nav-drawer__secondary">
+ codex/redesign-website-for-improved-aesthetics-a0lias
+          <a href="https://www.youtube.com/@blobby_official">YouTube</a>
+          <a href="https://discord.gg/quq8thpMEd">Discord</a>
+=======
           <a href="https://www.youtube.com/@blobby_official" target="_blank" rel="noopener noreferrer">YouTube</a>
           <a href="https://discord.gg/quq8thpMEd" target="_blank" rel="noopener noreferrer">Discord</a>
+ main
         </div>
       </div>
     </aside>
@@ -427,7 +425,7 @@
         </div>
         <a
           class="button button-secondary"
-          href="https://store.blobbyofficial.com"
+          href="/store/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -437,144 +435,46 @@
 
       <div class="store-filters-head" data-reveal="up">
         <p class="store-filters-copy">
-          Browse the preview by the editing job each pack is built to solve.
+          The newest products appear first. Use the horizontal carousel to quickly preview the latest releases.
         </p>
         <p class="store-results" id="store-filter-results" data-store-results aria-live="polite">
-          Showing all 3 preview packs.
+          Loading latest store items…
         </p>
       </div>
 
-      <div class="store-filters" role="toolbar" aria-label="Preset filters" data-reveal="up">
-        <button class="filter-chip is-active" type="button" data-store-filter="all" aria-pressed="true" aria-controls="store-preview-grid">All</button>
-        <button class="filter-chip" type="button" data-store-filter="short-form" aria-pressed="false" aria-controls="store-preview-grid">Short Form</button>
-        <button class="filter-chip" type="button" data-store-filter="long-form" aria-pressed="false" aria-controls="store-preview-grid">Long Form</button>
-        <button class="filter-chip" type="button" data-store-filter="captions" aria-pressed="false" aria-controls="store-preview-grid">Captions</button>
-        <button class="filter-chip" type="button" data-store-filter="finish" aria-pressed="false" aria-controls="store-preview-grid">Finish</button>
-      </div>
-
-      <div class="store-layout">
+      <div class="store-layout store-layout-carousel">
         <article class="store-featured" data-reveal="up" data-store-featured>
           <div class="store-featured__art">
             <span class="preset-pill">Featured Pack</span>
             <div class="store-featured__screen">
-              <span class="preset-format">9:16</span>
-              <strong>Hookline Punch</strong>
-              <span class="store-featured__caption">Built for faster hooks and sharper retention pacing.</span>
+              <span class="preset-format" data-store-featured-format>DaVinci</span>
+              <strong data-store-featured-name>Loading…</strong>
+              <span class="store-featured__caption" data-store-featured-caption>Loading latest featured product.</span>
             </div>
           </div>
 
           <div class="store-featured__copy">
-            <p class="card-kicker">Short Form Preset</p>
-            <h3>Hookline Punch Pack</h3>
-            <p>
-              Impact zooms, snap cuts, and high-energy motion designed for creators who need a
-              stronger opening second without cluttering the timeline.
+            <p class="card-kicker" data-store-featured-category>Latest Release</p>
+            <h3 data-store-featured-title>Loading product…</h3>
+            <p data-store-featured-description>
+              Loading product details from the store content feed.
             </p>
-            <div class="store-meta" aria-label="Featured preset tags">
-              <span class="tag">Retention</span>
-              <span class="tag">DaVinci</span>
-            </div>
-            <a
-              class="button button-primary"
-              href="https://store.blobbyofficial.com/search?q=Hookline%20Punch%20Pack"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div class="store-meta" aria-label="Featured preset tags" data-store-featured-tags></div>
+            <a class="button button-primary" href="/store/" data-store-featured-link>
               Open Featured Pack
             </a>
           </div>
         </article>
 
-        <div class="store-grid" id="store-preview-grid" data-store-grid>
-          <article class="store-card" data-reveal="up" style="--delay: 0.04s;" data-store-item data-store-category="long-form">
-            <div class="store-card__art store-card__art-long">
-              <span class="preset-pill">DaVinci Resolve</span>
-              <div class="store-card__screen">
-                <span class="preset-format">16:9</span>
-                <strong>Longform Flow</strong>
-              </div>
-            </div>
-            <div class="store-card__copy">
-              <p class="card-kicker">Long-Form Preset</p>
-              <h3>Longform Flow Pack</h3>
-              <p>Cleaner pacing helpers, softer transitions, and structure presets for longer cuts.</p>
-            </div>
-            <div class="store-card__footer">
-              <div class="store-meta" aria-label="Longform Flow tags">
-                <span class="tag">Watch Time</span>
-                <span class="tag">Workflow</span>
-              </div>
-              <a
-                class="store-card__link"
-                href="https://store.blobbyofficial.com/search?q=Longform%20Flow%20Pack"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Pack
-              </a>
-            </div>
-          </article>
-
-          <article class="store-card" data-reveal="up" style="--delay: 0.08s;" data-store-item data-store-category="captions">
-            <div class="store-card__art store-card__art-captions">
-              <span class="preset-pill">DaVinci Resolve</span>
-              <div class="store-card__screen">
-                <span class="preset-format">Text</span>
-                <strong>Caption Surge</strong>
-              </div>
-            </div>
-            <div class="store-card__copy">
-              <p class="card-kicker">Caption Preset</p>
-              <h3>Caption Surge Toolkit</h3>
-              <p>Readable captions, motion accents, and edit-ready typography for spoken content.</p>
-            </div>
-            <div class="store-card__footer">
-              <div class="store-meta" aria-label="Caption Surge tags">
-                <span class="tag">Captions</span>
-                <span class="tag">Short Form</span>
-              </div>
-              <a
-                class="store-card__link"
-                href="https://store.blobbyofficial.com/search?q=Caption%20Surge%20Toolkit"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Pack
-              </a>
-            </div>
-          </article>
-
-          <article class="store-card" data-reveal="up" style="--delay: 0.12s;" data-store-item data-store-category="finish">
-            <div class="store-card__art store-card__art-finish">
-              <span class="preset-pill">DaVinci Resolve</span>
-              <div class="store-card__screen">
-                <span class="preset-format">Finish</span>
-                <strong>Clean Finish</strong>
-              </div>
-            </div>
-            <div class="store-card__copy">
-              <p class="card-kicker">Finish Preset</p>
-              <h3>Clean Finish Grade</h3>
-              <p>Subtle glow, contrast shaping, and final-pass polish to finish edits without clutter.</p>
-            </div>
-            <div class="store-card__footer">
-              <div class="store-meta" aria-label="Clean Finish tags">
-                <span class="tag">Grade</span>
-                <span class="tag">Premium</span>
-              </div>
-              <a
-                class="store-card__link"
-                href="https://store.blobbyofficial.com/search?q=Clean%20Finish%20Grade"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Pack
-              </a>
-            </div>
-          </article>
+        <div class="store-carousel-wrap" data-reveal="up">
+          <div class="store-carousel-controls" aria-label="Store preview controls">
+            <button class="store-carousel-btn" type="button" data-store-carousel-prev aria-label="Previous store items">←</button>
+            <button class="store-carousel-btn" type="button" data-store-carousel-next aria-label="Next store items">→</button>
+          </div>
+          <div class="store-carousel" data-store-carousel></div>
         </div>
       </div>
-    </section>
+</section>
 
     <section class="section shell" id="process">
       <div class="section-heading" data-reveal="up">
@@ -684,7 +584,7 @@
           class="connect-card"
           data-reveal="up"
           style="--delay: 0.18s;"
-          href="https://store.blobbyofficial.com"
+          href="/store/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -704,7 +604,7 @@
           class="connect-card"
           data-reveal="up"
           style="--delay: 0.24s;"
-          href="https://commission.blobbyofficial.com"
+          href="/commission/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -756,17 +656,15 @@
         <div class="cta-actions">
           <a
             class="button button-primary magnetic"
-            href="https://commission.blobbyofficial.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/commission/"
+
           >
             Start a Project
           </a>
           <a
             class="button button-secondary"
-            href="https://store.blobbyofficial.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/store/"
+
           >
             Shop Presets
           </a>
@@ -785,15 +683,21 @@
 
         <nav class="site-footer__links" aria-label="Footer navigation">
           <a href="#top">Top</a>
+ codex/redesign-website-for-improved-aesthetics-a0lias
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/store/">Store</a>
+                  </nav>
+=======
           <a href="#work">Work</a>
           <a href="#store">Store</a>
           <a href="#links">Links</a>
         </nav>
+ main
       </div>
 
       <div class="site-footer__bottom">
         <p>&copy; <span data-year></span> BlobbyOfficial. All rights reserved.</p>
-        <a href="https://www.blobbyofficial.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.blobbyofficial.com">
           blobbyofficial.com
         </a>
       </div>

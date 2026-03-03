@@ -400,6 +400,93 @@
     applyFilter(initialFilter);
   }
 
+ codex/redesign-website-for-improved-aesthetics-a0lias
+
+  async function setupStorePreviewCarousel() {
+    const featured = document.querySelector('[data-store-featured]');
+    const carousel = document.querySelector('[data-store-carousel]');
+    const results = document.querySelector('[data-store-results]');
+    const prev = document.querySelector('[data-store-carousel-prev]');
+    const next = document.querySelector('[data-store-carousel-next]');
+
+    if (!featured || !carousel) {
+      return;
+    }
+
+    const products = await fetch('/content/store/products.json')
+      .then((response) => response.json())
+      .catch(() => []);
+
+    const sorted = [...products].sort((a, b) =>
+      String(b.dateAdded || '').localeCompare(String(a.dateAdded || ''))
+    );
+
+    if (!sorted.length) {
+      if (results) {
+        results.textContent = 'No store items available yet.';
+      }
+      return;
+    }
+
+    const newest = sorted[0];
+    const featuredFormat = featured.querySelector('[data-store-featured-format]');
+    const featuredName = featured.querySelector('[data-store-featured-name]');
+    const featuredCaption = featured.querySelector('[data-store-featured-caption]');
+    const featuredCategory = featured.querySelector('[data-store-featured-category]');
+    const featuredTitle = featured.querySelector('[data-store-featured-title]');
+    const featuredDescription = featured.querySelector('[data-store-featured-description]');
+    const featuredTags = featured.querySelector('[data-store-featured-tags]');
+    const featuredLink = featured.querySelector('[data-store-featured-link]');
+
+    if (featuredFormat) featuredFormat.textContent = newest.format || 'Preset';
+    if (featuredName) featuredName.textContent = newest.title || 'Featured';
+    if (featuredCaption) featuredCaption.textContent = `Newest release · ${newest.price || ''}`.trim();
+    if (featuredCategory) featuredCategory.textContent = newest.category || 'Latest Release';
+    if (featuredTitle) featuredTitle.textContent = newest.title || 'Featured product';
+    if (featuredDescription) featuredDescription.textContent = newest.description || '';
+    if (featuredTags) {
+      featuredTags.innerHTML = [newest.category, newest.format].filter(Boolean).map((tag) => `<span class="tag">${tag}</span>`).join('');
+    }
+    if (featuredLink) featuredLink.href = `/store/product/?id=${encodeURIComponent(newest.id)}`;
+
+    carousel.innerHTML = sorted.map((item) => `
+      <article class="store-card" data-store-item>
+        <div class="store-card__art">
+          <span class="preset-pill">${item.format || 'Preset'}</span>
+          <div class="store-card__screen">
+            <span class="preset-format">${item.category || 'Category'}</span>
+            <strong>${item.title}</strong>
+          </div>
+        </div>
+        <div class="store-card__copy">
+          <p class="card-kicker">${item.category || 'Preset'}</p>
+          <h3>${item.title}</h3>
+          <p>${item.description || ''}</p>
+        </div>
+        <div class="store-card__footer">
+          <div class="store-meta"><span class="tag">${item.price || ''}</span></div>
+          <a class="store-card__link" href="/store/product/?id=${encodeURIComponent(item.id)}">View Product</a>
+        </div>
+      </article>
+    `).join('');
+
+    if (results) {
+      results.textContent = `Showing latest ${sorted.length} store ${sorted.length === 1 ? 'item' : 'items'}.`;
+    }
+
+    const slideDistance = () => Math.round(carousel.clientWidth * 0.86);
+
+    prev?.addEventListener('click', () => {
+      carousel.scrollBy({ left: -slideDistance(), behavior: 'smooth' });
+    });
+
+    next?.addEventListener('click', () => {
+      carousel.scrollBy({ left: slideDistance(), behavior: 'smooth' });
+    });
+  }
+
+=======
+ main
   function setupCustomCursor() {
     const root = document.documentElement;
     const body = document.body;
@@ -479,6 +566,10 @@
     setupActiveNavigation();
     setupProgressBars();
     setupStoreFilters();
+ codex/redesign-website-for-improved-aesthetics-a0lias
+    setupStorePreviewCarousel();
+=======
+ main
     setupCustomCursor();
   }
 

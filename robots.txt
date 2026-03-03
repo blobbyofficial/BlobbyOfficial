@@ -4,6 +4,16 @@ Disallow: /private/
 Disallow: /admin/
 
 Allow: /assets/
+ codex/redesign-website-for-improved-aesthetics-a0lias
+Allow: /legal/
+Allow: /blog/
+Allow: /newsletter/
+Allow: /commission/
+Allow: /portfolio/
+Allow: /links/
+Allow: /store/
+=======
+ main
 Allow: /music/
 Allow: /gallery/
 

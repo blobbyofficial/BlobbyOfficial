@@ -1,0 +1,207 @@
+.portfolio-main {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  isolation: isolate;
+}
+
+.portfolio-main::before {
+  content: "";
+  position: absolute;
+  inset: -2rem -2rem auto;
+  height: min(50vh, 24rem);
+  z-index: -1;
+  background: radial-gradient(circle at 15% 30%, rgba(14, 165, 233, 0.22), transparent 58%),
+    radial-gradient(circle at 80% 15%, rgba(99, 102, 241, 0.28), transparent 54%);
+  filter: blur(9px);
+}
+
+.portfolio-hero {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.portfolio-kicker {
+  width: fit-content;
+  margin: 0;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--brand-2);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.hero-stats span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.portfolio-controls {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.control-field {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.portfolio-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.platform-grid,
+.stat-grid,
+.review-grid,
+.faq-grid,
+.project-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.platform-card,
+.stat-card,
+.review-card,
+.faq-card,
+.project-card,
+.highlight-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.95rem;
+  background: linear-gradient(170deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+}
+
+.platform-card a {
+  color: var(--brand-2);
+  text-decoration: none;
+}
+
+.highlight-row {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.highlight-card {
+  border-color: rgba(99,102,241,.35);
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -25% -30%;
+  height: 8rem;
+  background: radial-gradient(circle, rgba(99,102,241,.22), transparent 70%);
+  opacity: 0;
+  transition: opacity 210ms ease;
+  pointer-events: none;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+.project-card img,
+.project-card iframe {
+  width: 100%;
+  height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.stars {
+  color: #fbbf24;
+  letter-spacing: .04em;
+}
+
+.faq-card summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq-card p {
+  margin-top: 0.55rem;
+  color: var(--muted);
+}
+
+.reveal-on-load {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: revealUp 640ms ease forwards;
+}
+
+.reveal-delay-1 { animation-delay: 110ms; }
+.reveal-delay-2 { animation-delay: 220ms; }
+
+@keyframes revealUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.empty-state {
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (min-width: 820px) {
+  .portfolio-controls {
+    grid-template-columns: 1fr 260px;
+  }
+
+  .platform-grid,
+  .stat-grid,
+  .review-grid,
+  .faq-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .highlight-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-load {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-card::after {
+    transition: none;
+  }
+}
