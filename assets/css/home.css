@@ -1469,6 +1469,7 @@ h1, h2, h3, p, li, a, span {
     font-size: 0.8rem;
   }
 }
+ codex/redesign-website-for-improved-aesthetics-a0lias
 
 /* Home store latest carousel */
 .store-layout-carousel {
@@ -1521,3 +1522,5 @@ h1, h2, h3, p, li, a, span {
     grid-auto-columns: minmax(280px, 30vw);
   }
 }
+=======
+ main

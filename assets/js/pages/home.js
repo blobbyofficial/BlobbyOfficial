@@ -400,6 +400,7 @@
     applyFilter(initialFilter);
   }
 
+ codex/redesign-website-for-improved-aesthetics-a0lias
 
   async function setupStorePreviewCarousel() {
     const featured = document.querySelector('[data-store-featured]');
@@ -484,6 +485,8 @@
     });
   }
 
+=======
+ main
   function setupCustomCursor() {
     const root = document.documentElement;
     const body = document.body;
@@ -563,7 +566,10 @@
     setupActiveNavigation();
     setupProgressBars();
     setupStoreFilters();
+ codex/redesign-website-for-improved-aesthetics-a0lias
     setupStorePreviewCarousel();
+=======
+ main
     setupCustomCursor();
   }
 

@@ -1,6 +1,11 @@
 // Service Worker - Cache Strategy & Offline Support
+ codex/redesign-website-for-improved-aesthetics-a0lias
 const CACHE_NAME = 'blobby-v1.2.0';
 const RUNTIME_CACHE = 'blobby-runtime-v1.2.0';
+=======
+const CACHE_NAME = 'blobby-v1.1.0';
+const RUNTIME_CACHE = 'blobby-runtime-v1.1.0';
+ main
 const CRITICAL_ASSETS = [
   '/',
   '/index.html',
@@ -13,10 +18,14 @@ const CRITICAL_ASSETS = [
   '/main.js',
   '/assets/js/pages/home.js',
   '/assets/css/site-shell.css',
+ codex/redesign-website-for-improved-aesthetics-a0lias
   '/assets/css/home.css',
   '/assets/css/store-page.css',
   '/assets/js/pages/store.js',
   '/assets/js/pages/store-product.js'
+=======
+  '/assets/css/home.css'
+ main
 ];
 
 // Install: Cache critical assets
