@@ -4,6 +4,7 @@ Disallow: /private/
 Disallow: /admin/
 
 Allow: /assets/
+Allow: /legal/
 Allow: /blog/
 Allow: /newsletter/
 Allow: /commission/

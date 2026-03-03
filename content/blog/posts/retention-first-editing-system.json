@@ -1,0 +1,16 @@
+{
+  "title": "Building a Retention-First Editing System",
+  "date": "2026-03-01",
+  "tags": ["Editing", "Short Form", "Workflow"],
+  "cover": "/assets/images/banner.png",
+  "blocks": [
+    {"type": "text", "content": "Most creators don’t need more effects — they need clearer editing decisions. This system is designed around intent: hook, context, escalation, payoff."},
+    {"type": "heading", "level": 2, "content": "1) Hook Architecture"},
+    {"type": "list", "items": ["First frame communicates conflict", "First sentence sets promise", "First 3 seconds visually escalate"]},
+    {"type": "image", "src": "/assets/images/preview.png", "alt": "Timeline preview"},
+    {"type": "heading", "level": 2, "content": "2) Rhythm and Cadence"},
+    {"type": "text", "content": "Use velocity changes intentionally: fast cuts to establish momentum, then strategic micro-pauses to reset attention and build contrast."},
+    {"type": "quote", "content": "Retention comes from clarity and curiosity, not chaos."},
+    {"type": "links", "items": [{"label": "Commission an edit", "url": "/commission/"}, {"label": "Browse preset packs", "url": "/store/"}]}
+  ]
+}

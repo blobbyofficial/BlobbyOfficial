@@ -1,0 +1,14 @@
+{
+  "title": "Longform Pacing Playbook for Creator Channels",
+  "date": "2026-02-20",
+  "tags": ["Longform", "YouTube", "Story"],
+  "cover": "/assets/images/Spotify_Banner.png",
+  "blocks": [
+    {"type": "text", "content": "Longform wins when each segment earns the next. This playbook gives you a repeatable structure for chapter-level engagement."},
+    {"type": "heading", "level": 2, "content": "Chapter Pattern"},
+    {"type": "list", "items": ["Open loop question", "Evidence + demonstration", "Mini payoff", "Bridge to next chapter"]},
+    {"type": "text", "content": "If a chapter can be removed without loss, it probably should be."},
+    {"type": "image", "src": "/assets/images/pfp_character.png", "alt": "Creator profile art"},
+    {"type": "links", "items": [{"label": "See portfolio", "url": "/portfolio/"}]}
+  ]
+}

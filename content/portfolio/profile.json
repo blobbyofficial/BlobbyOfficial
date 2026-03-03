@@ -1,0 +1,16 @@
+{
+  "youtube": "https://www.youtube.com/@blobby_official",
+  "youtubeEmbed": "https://www.youtube.com/embed?listType=user_uploads&list=blobby_official",
+  "tiktok": "https://www.tiktok.com/@blobbyofficial",
+  "tiktokEmbedPlaceholder": "TikTok feed embed placeholder (paste your preferred embed widget here)",
+  "gallery": [
+    {"type": "image", "src": "/assets/images/banner.png", "title": "Brand Banner"},
+    {"type": "image", "src": "/assets/images/preview.png", "title": "Editing Preview"},
+    {"type": "video", "src": "https://www.youtube.com/embed/dQw4w9WgXcQ", "title": "Sample Edit Reel"}
+  ],
+  "reviews": [
+    {"author": "Creator A", "rating": 5, "text": "Super clean pacing and instant communication. The edit increased average watch duration in our first upload."},
+    {"author": "Brand Team B", "rating": 5, "text": "Professional turnaround, clear revisions process, and final exports were platform-ready."},
+    {"author": "Streamer C", "rating": 4, "text": "Great storytelling improvements and punchier intros. Highly recommend for retention-focused editing."}
+  ]
+}

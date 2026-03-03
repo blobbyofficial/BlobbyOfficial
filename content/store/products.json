@@ -1,0 +1,14 @@
+[
+  {
+    "id": "hookline-punch-pack",
+    "title": "Hookline Punch Pack",
+    "category": "Short Form",
+    "format": "DaVinci Resolve",
+    "price": "$29",
+    "thumbnail": "/assets/images/preview.png",
+    "description": "Impact zooms, velocity transitions, and hook-first motion presets for 9:16 edits.",
+    "features": ["20 transition macros", "6 title templates", "Color-safe defaults"],
+    "gallery": ["/assets/images/preview.png", "/assets/images/banner.png"],
+    "gumroadUrl": "https://gumroad.com/"
+  }
+]
