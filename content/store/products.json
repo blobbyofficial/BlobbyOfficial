@@ -1,14 +1,41 @@
 [
   {
-    "id": "hookline-punch-pack",
-    "title": "Hookline Punch Pack",
+    "id": "retention-hooks-v2",
+    "title": "Retention Hooks V2",
     "category": "Short Form",
     "format": "DaVinci Resolve",
     "price": "$29",
     "thumbnail": "/assets/images/preview.png",
-    "description": "Impact zooms, velocity transitions, and hook-first motion presets for 9:16 edits.",
-    "features": ["20 transition macros", "6 title templates", "Color-safe defaults"],
+    "description": "Hook-first transitions, intro punch-ins, and rhythm presets designed for higher short-form retention.",
+    "features": ["32 transition macros", "8 text styles", "Snap timing controls"],
     "gallery": ["/assets/images/preview.png", "/assets/images/banner.png"],
-    "gumroadUrl": "https://gumroad.com/"
+    "gumroadUrl": "https://gumroad.com/",
+    "dateAdded": "2026-03-01"
+  },
+  {
+    "id": "longform-storyflow-pack",
+    "title": "Longform Storyflow Pack",
+    "category": "Long Form",
+    "format": "DaVinci Resolve",
+    "price": "$39",
+    "thumbnail": "/assets/images/Spotify_Banner.png",
+    "description": "Chapter pacing and connective tissue presets to keep long videos smooth and engaging.",
+    "features": ["14 pacing templates", "6 chapter openers", "Story bridge effects"],
+    "gallery": ["/assets/images/Spotify_Banner.png", "/assets/images/preview.png"],
+    "gumroadUrl": "https://gumroad.com/",
+    "dateAdded": "2026-02-25"
+  },
+  {
+    "id": "caption-surge-toolkit",
+    "title": "Caption Surge Toolkit",
+    "category": "Captions",
+    "format": "DaVinci Resolve",
+    "price": "$24",
+    "thumbnail": "/assets/images/banner.png",
+    "description": "Readable kinetic captions for talking-head, tutorial, and reaction formats.",
+    "features": ["20 caption styles", "Auto-safe spacing", "Highlight controls"],
+    "gallery": ["/assets/images/banner.png", "/assets/images/preview.png"],
+    "gumroadUrl": "https://gumroad.com/",
+    "dateAdded": "2026-02-19"
   }
 ]
