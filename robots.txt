@@ -4,6 +4,11 @@ Disallow: /private/
 Disallow: /admin/
 
 Allow: /assets/
+Allow: /blog/
+Allow: /newsletter/
+Allow: /commission/
+Allow: /portfolio/
+Allow: /store/
 Allow: /music/
 Allow: /gallery/
 
