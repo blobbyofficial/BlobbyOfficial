@@ -1,6 +1,6 @@
 // Service Worker - Cache Strategy & Offline Support
-const CACHE_NAME = 'blobby-v1.0.0';
-const RUNTIME_CACHE = 'blobby-runtime-v1.0.0';
+const CACHE_NAME = 'blobby-v1.2.0';
+const RUNTIME_CACHE = 'blobby-runtime-v1.2.0';
 const CRITICAL_ASSETS = [
   '/',
   '/index.html',
@@ -10,7 +10,13 @@ const CRITICAL_ASSETS = [
   '/assets/css/components.css',
   '/assets/css/navbar.css',
   '/assets/css/responsive.css',
-  '/main.js'
+  '/main.js',
+  '/assets/js/pages/home.js',
+  '/assets/css/site-shell.css',
+  '/assets/css/home.css',
+  '/assets/css/store-page.css',
+  '/assets/js/pages/store.js',
+  '/assets/js/pages/store-product.js'
 ];
 
 // Install: Cache critical assets

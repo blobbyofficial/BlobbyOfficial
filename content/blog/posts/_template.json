@@ -1,0 +1,23 @@
+{
+  "schema": "blobby.blog.post.v2",
+  "title": "Post title",
+  "date": "YYYY-MM-DD",
+  "author": "Author name",
+  "readTime": 6,
+  "tags": ["Tag A", "Tag B"],
+  "cover": "/assets/images/banner.png",
+  "lede": "One sentence summary with optional *emphasis* or **bold**.",
+  "blocks": [
+    {"type": "heading", "level": 2, "content": "Section heading"},
+    {"type": "text", "content": "Paragraph text with **bold**, *italic*, or `inline code`."},
+    {"type": "list", "ordered": false, "items": ["Point one", "Point two"]},
+    {"type": "image", "src": "/assets/images/example.png", "alt": "Description", "caption": "Optional caption."},
+    {"type": "gallery", "items": [{"src": "/assets/images/example-1.png", "alt": "Image 1"}, {"src": "/assets/images/example-2.png", "alt": "Image 2"}]},
+    {"type": "quote", "content": "Quote content.", "citation": "Optional citation"},
+    {"type": "callout", "title": "Tip", "content": "Important highlighted insight."},
+    {"type": "code", "content": "const sample = true;"},
+    {"type": "table", "headers": ["Column A", "Column B"], "rows": [["A1", "B1"], ["A2", "B2"]]},
+    {"type": "references", "items": ["Reference 1", "Reference 2"]},
+    {"type": "links", "items": [{"label": "Internal link", "url": "/blog/"}, {"label": "External link", "url": "https://example.com"}]}
+  ]
+}

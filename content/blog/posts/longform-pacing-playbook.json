@@ -1,0 +1,21 @@
+{
+  "schema": "blobby.blog.post.v2",
+  "title": "Longform Pacing Playbook for Creator Channels",
+  "date": "2026-02-20",
+  "author": "BlobbyOfficial",
+  "readTime": 9,
+  "tags": ["Longform", "YouTube", "Story"],
+  "cover": "/assets/images/Spotify_Banner.png",
+  "lede": "Longform wins when each section *earns the next click of attention*.",
+  "blocks": [
+    {"type": "text", "content": "This playbook gives you a repeatable structure for chapter-level engagement."},
+    {"type": "heading", "level": 2, "content": "Chapter Pattern"},
+    {"type": "list", "items": ["Open loop question", "Evidence + demonstration", "Mini payoff", "Bridge to next chapter"]},
+    {"type": "callout", "title": "Rule", "content": "If a section can be removed without loss, it probably should be."},
+    {"type": "heading", "level": 2, "content": "Visual Reset Strategy"},
+    {"type": "gallery", "items": [{"src": "/assets/images/pfp_character.png", "alt": "Creator profile art"}, {"src": "/assets/images/banner.png", "alt": "Banner visual"}]},
+    {"type": "code", "content": "// pacing cue\nif (chapterDuration > 90) addPatternInterrupt();"},
+    {"type": "references", "items": ["Audience retention cohort test, 8 uploads", "Story pacing benchmark from documentary channels"]},
+    {"type": "links", "items": [{"label": "See portfolio", "url": "/portfolio/"}, {"label": "Back to blog", "url": "/blog/"}]}
+  ]
+}

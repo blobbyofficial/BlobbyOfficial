@@ -1,0 +1,17 @@
+{
+  "schema": "blobby.links.v1",
+  "name": "BlobbyOfficial",
+  "bio": "Video editor, presets creator, and retention-first workflow specialist.",
+  "social": [
+    { "label": "YouTube", "url": "https://www.youtube.com/@blobby_official" },
+    { "label": "Discord", "url": "https://discord.gg/quq8thpMEd" },
+    { "label": "TikTok", "url": "https://www.tiktok.com/@blobbyofficial" }
+  ],
+  "links": [
+    { "title": "Book a commission", "subtitle": "Custom edit inquiry and project scoping", "url": "/commission/" },
+    { "title": "Browse preset packs", "subtitle": "Resolve workflow presets and tools", "url": "/store/" },
+    { "title": "See portfolio", "subtitle": "Proof of work, client feedback, and projects", "url": "/portfolio/" },
+    { "title": "Read the blog", "subtitle": "Editing strategy, systems, and creator notes", "url": "/blog/" },
+    { "title": "Email", "subtitle": "blobbyofficial@blobbyofficial.com", "url": "mailto:blobbyofficial@blobbyofficial.com" }
+  ]
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio | BlobbyOfficial</title><meta name="theme-color" content="#070b14"><meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-32x32.png"><link rel="stylesheet" href="/assets/css/site-shell.css"><link rel="stylesheet" href="/assets/css/content-pages.css"><link rel="stylesheet" href="/assets/css/portfolio-page.css">
+<script defer src="/assets/js/site-shell.js"></script><script defer src="/assets/js/pages/portfolio.js"></script>
+</head><body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="shell-header"><div class="shell shell-header__bar"><a class="shell-brand" href="/"><img class="shell-brand__mark" src="/assets/icons/icon_1080x1080.png" alt="" width="40" height="40"><span class="shell-brand__copy"><span class="shell-brand__title">BlobbyOfficial</span></span></a><nav class="shell-nav"><ul class="shell-nav__list">
+          <li><a class="shell-nav__link" href="/">Home</a></li>
+          <li><a class="shell-nav__link" href="/portfolio/">Portfolio</a></li>
+          <li><a class="shell-nav__link" href="/store/">Store</a></li>
+          <li><a class="shell-nav__link" href="/commission/">Commission</a></li>
+          <li><a class="shell-nav__link" href="/blog/">Blog</a></li>
+                  </ul></nav><div class="shell-header__utilities">
+        <div class="shell-header__cta">
+          <a class="button button-secondary" href="/store/">View Presets</a>
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="nav-drawer" id="site-drawer" data-nav-drawer hidden>
+    <div class="nav-backdrop" data-nav-backdrop></div>
+    <aside class="nav-drawer__panel" aria-label="Mobile navigation">
+      <div class="nav-drawer__header">
+        <a class="shell-brand" href="/">
+          <img class="shell-brand__mark" src="/assets/icons/icon_1080x1080.png" alt="" width="48" height="48">
+          <span class="shell-brand__copy"><span class="shell-brand__title">BlobbyOfficial</span><span class="shell-brand__subtitle">Editing and preset workflow</span></span>
+        </a>
+        <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Browse</p>
+        <nav class="nav-drawer__nav">
+          <a href="/">Home</a><a href="/portfolio/">Portfolio</a><a href="/store/">Store</a><a href="/commission/">Commission</a><a href="/blog/">Blog</a>        </nav>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Actions</p>
+        <div class="nav-drawer__actions">
+          <a class="button button-primary" href="/commission/">Book an Edit</a>
+          <a class="button button-secondary" href="/store/">View Presets</a>
+        </div>
+      </div>
+      <div class="nav-drawer__block">
+        <p class="nav-drawer__section-label">Elsewhere</p>
+        <div class="nav-drawer__secondary">
+          <a href="https://www.youtube.com/@blobby_official" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://discord.gg/quq8thpMEd" target="_blank" rel="noopener noreferrer">Discord</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+<main id="main-content" class="shell page-main portfolio-main" tabindex="-1">
+  <section class="page-hero portfolio-hero reveal-on-load">
+    <p class="portfolio-kicker">Portfolio system v2</p>
+    <h1>Portfolio & Social Proof</h1>
+    <p class="page-meta">Premium presentation with animated sections, structured project cards, testimonials, and data-driven controls from <code>/content/portfolio/profile.json</code>.</p>
+    <div class="hero-stats" data-portfolio-stats><span>0 projects</span><span>0 testimonials</span><span>0 platforms</span></div>
+  </section>
+
+  <section class="page-section portfolio-controls reveal-on-load reveal-delay-1">
+    <label class="control-field">Search projects
+      <input class="input" data-portfolio-search placeholder="Search project title, tags, platform...">
+    </label>
+    <label class="control-field">Filter by type
+      <select class="select" data-portfolio-type>
+        <option value="all">All types</option>
+      </select>
+    </label>
+  </section>
+
+  <section data-portfolio class="portfolio-content"></section>
+</main>
+</body></html>

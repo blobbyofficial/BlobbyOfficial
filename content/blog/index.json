@@ -1,0 +1,28 @@
+{
+  "schema": "blobby.blog.index.v2",
+  "updatedAt": "2026-03-03",
+  "posts": [
+    {
+      "slug": "retention-first-editing-system",
+      "title": "Building a Retention-First Editing System",
+      "date": "2026-03-01",
+      "author": "BlobbyOfficial",
+      "readTime": 7,
+      "category": "Editing Strategy",
+      "tags": ["Editing", "Short Form", "Workflow"],
+      "excerpt": "A practical framework for hooks, pacing, and payoff that keeps watch-time high without making content feel over-edited.",
+      "cover": "/assets/images/banner.png"
+    },
+    {
+      "slug": "longform-pacing-playbook",
+      "title": "Longform Pacing Playbook for Creator Channels",
+      "date": "2026-02-20",
+      "author": "BlobbyOfficial",
+      "readTime": 9,
+      "category": "Longform Growth",
+      "tags": ["Longform", "YouTube", "Story"],
+      "excerpt": "How to pace long videos with breathing room, chapter-level rhythm, and structure that naturally increases completion.",
+      "cover": "/assets/images/Spotify_Banner.png"
+    }
+  ]
+}
